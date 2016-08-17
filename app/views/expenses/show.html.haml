@@ -1,0 +1,18 @@
+- model_class = Expense
+.page-header
+  %h1= t '.title', :default => Expense
+.fieldset
+  %dl
+    %dt.label.label-default= model_class.human_attribute_name(:spent_date)
+    %dd
+      %pre.prettyprint= @expense.spent_date
+    %dt.label.label-default= model_class.human_attribute_name(:description)
+    %dd
+      %pre.prettyprint= @expense.description
+    %dt.label.label-default= model_class.human_attribute_name(:value)
+    %dd
+      %pre.prettyprint= @expense.value
+.form-group
+  = link_to 'back', expenses_path, class: 'btn btn-default'
+  = link_to 'edit', edit_expense_path(@category), class: 'btn btn-default'
+  = link_to 'destroy', expense_path(@category), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |

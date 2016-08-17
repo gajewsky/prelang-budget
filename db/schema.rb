@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160817145401) do
+ActiveRecord::Schema.define(version: 20160817154026) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,9 +42,12 @@ ActiveRecord::Schema.define(version: 20160817145401) do
     t.integer  "subcategory_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.text     "description"
+    t.integer  "user_id"
   end
 
   add_index "incomes", ["subcategory_id"], name: "index_incomes_on_subcategory_id", using: :btree
+  add_index "incomes", ["user_id"], name: "index_incomes_on_user_id", using: :btree
 
   create_table "subcategories", force: true do |t|
     t.string   "title"
