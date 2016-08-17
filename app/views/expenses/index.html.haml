@@ -8,6 +8,7 @@
       %th= model_class.human_attribute_name(:spent_date)
       %th= model_class.human_attribute_name(:description)
       %th= model_class.human_attribute_name(:value)
+      %th= model_class.human_attribute_name(:subcategory)
       %th= model_class.human_attribute_name(:created_at)
       %th= t '.actions', :default => t("helpers.actions")
   %tbody
@@ -17,6 +18,7 @@
         %td= expense.spent_date
         %td= expense.description
         %td= expense.value
+        %td= expense.subcategory&.title
         %td= l expense.created_at, format: :long
         %td
           = link_to expense_path(expense), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do

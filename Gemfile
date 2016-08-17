@@ -8,17 +8,18 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'turbolinks'
 gem 'jbuilder', '~> 2.0'
-gem 'sdoc', '~> 0.4.0',          group: :doc
-gem 'bundler'
+gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'bootstrap-sass', '3.3.5'
 gem 'bootstrap-sass-extras'
 gem 'devise', github: 'plataformatec/devise'
-gem 'omniauth'
-gem 'omniauth-facebook'
 gem 'validates_formatting_of'
 gem 'tzinfo-data'
 gem 'haml-rails'
+gem 'cocoon'
+gem 'dashing-rails'
+gem 'chartkick'
+gem 'groupdate'
 
 group :development, :test do
   gem 'pry'

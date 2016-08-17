@@ -12,7 +12,10 @@
     %dt.label.label-default= model_class.human_attribute_name(:value)
     %dd
       %pre.prettyprint= @expense.value
+    %dt.label.label-default= model_class.human_attribute_name(:category)
+    %dd
+      %pre.prettyprint= @expense.subcategory&.title
 .form-group
   = link_to 'back', expenses_path, class: 'btn btn-default'
-  = link_to 'edit', edit_expense_path(@category), class: 'btn btn-default'
-  = link_to 'destroy', expense_path(@category), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |
+  = link_to 'edit', edit_expense_path(@expense), class: 'btn btn-default'
+  = link_to 'destroy', expense_path(@expense), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |

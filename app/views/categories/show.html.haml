@@ -9,6 +9,11 @@
     %dt.label.label-default= model_class.human_attribute_name(:description)
     %dd
       %pre.prettyprint= @category.description
+    %dt.label.label-default= model_class.human_attribute_name(:subcategories)
+    - @category.subcategories.each do |subcategory|
+      %dd
+        %pre.prettyprint= subcategory.title
+
 .form-group
   = link_to 'back', categories_path, class: 'btn btn-default'
   = link_to 'edit', edit_category_path(@category), class: 'btn btn-default'

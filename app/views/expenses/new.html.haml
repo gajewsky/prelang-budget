@@ -1,4 +1,5 @@
 - model_class = Expense
 .page-header
   %h1= t '.title', :default => [:'helpers.titles.new', 'New %{model}'], :model => Expense
-= render :partial => 'form'
+.col-md-10.center-block
+  = render partial: 'form'

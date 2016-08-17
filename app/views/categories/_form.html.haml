@@ -1,14 +1,13 @@
-= form_for @category, :html => { :class => 'form-horizontal form-model' } do |f|
-  .form-group
-    = f.label :title, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.text_field :title, :class => 'text-field form-control'
-  .form-group
-    = f.label :description, :class => 'control-label col-md-2'
-    .col-md-10
-      = f.text_area :description, :class => 'text-field form-control'
-  .form-group
+= simple_form_for @category, html: { class: 'form-model' } do |category|
+  = category.input :title
+  = category.input :description
+  %h3 Tasks
+  #subcategories
+    = category.simple_fields_for :subcategories do |subcategory|
+      = render 'subcategory_fields', f: subcategory
+    .links
+      = link_to_add_association 'Add subcategory', category, :subcategories
+    .form-group
     .col-md-offset-2.col-md-10
-      = f.submit nil, :class => 'btn btn-primary'
-      = link_to t('.cancel', :default => t("helpers.links.cancel")), |
-        categories_path, :class => 'btn btn-default'                 |
+    = category.submit nil, class: 'btn btn-primary'
+    = link_to 'cancel', categories_path, class: 'btn btn-default'

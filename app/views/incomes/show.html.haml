@@ -11,5 +11,5 @@
       %pre.prettyprint= @income.earn_date
 .form-group
   = link_to 'back', incomes_path, class: 'btn btn-default'
-  = link_to 'edit', edit_income_path(@category), class: 'btn btn-default'
-  = link_to 'destroy', income_path(@category), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |
+  = link_to 'edit', edit_income_path(@income), class: 'btn btn-default'
+  = link_to 'destroy', income_path(@income), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |

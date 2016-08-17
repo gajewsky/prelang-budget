@@ -1,2 +1,11 @@
 %h1 Dashboard#index
 %p Find me in app/views/dashboard/index.html.erb
+
+Incomes:
+= number_to_currency(@incomes_sum, unit: "zł", format: "%n %u")
+%br
+Expenses:
+= number_to_currency(@expenses_sum, unit: "zł", format: "%n %u")
+
+
+= pie_chart Expense.group_by_subcategory
