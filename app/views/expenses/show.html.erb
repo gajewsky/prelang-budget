@@ -1,29 +1,28 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Expense -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => Expense %></h1>
+</div>
 
-<p>
-  <strong>Spent date:</strong>
-  <%= @expense.spent_date %>
-</p>
+<div class="fieldset">
+  <dl>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:spent_date) %></dt>
+      <dd><pre class="prettyprint"><%= @expense.spent_date %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:description) %></dt>
+      <dd><pre class="prettyprint"><%= @expense.description %></pre></dd>
+      <dt class="label label-default"><%= model_class.human_attribute_name(:value) %></dt>
+      <dd><pre class="prettyprint"><%= @expense.value %></pre></dd>
+  </dl>
+</div>
 
-<p>
-  <strong>Description:</strong>
-  <%= @expense.description %>
-</p>
+<div class="form-group">
+  <%= link_to t('.back', :default => t("helpers.links.back")),
+              expenses_path, :class => 'btn btn-default'  %>
+  <%= link_to t('.edit', :default => t("helpers.links.edit")),
+              edit_expense_path(@expense), :class => 'btn btn-default' %>
+  <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+              expense_path(@expense),
+              :method => 'delete',
+              :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+              :class => 'btn btn-danger' %>
+</div>
 
-<p>
-  <strong>Value:</strong>
-  <%= @expense.value %>
-</p>
-
-<p>
-  <strong>Subcategory:</strong>
-  <%= @expense.subcategory %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @expense.user %>
-</p>
-
-<%= link_to 'Edit', edit_expense_path(@expense) %> |
-<%= link_to 'Back', expenses_path %>
