@@ -1,21 +1,27 @@
-- model_class = Income
 .page-header
-  %h1= t '.title', default: Income
+  %h1 Incomes
 %table.table.table-striped
   %thead
     %tr
       %th ID
-      %th= model_class.human_attribute_name(:value)
-      %th= model_class.human_attribute_name(:earn_date)
-      %th= model_class.human_attribute_name(:created_at)
+      %th Value
+      %th Subcategory
+      %th Description
+      %th Earn Date
+      %th Created at
+      %th User
       %th= t '.actions', default: t("helpers.actions")
   %tbody
     - @incomes.each do |income|
       %tr
         %td= income.id
         %td= income.value
-        %td= income.earn_date
-        %td= l income.created_at, format: :long
+        %td= income.subcategory&.title
+        %td= income.description
+        %td= l income.earn_date, format: :short
+        %td= l income.created_at, format: :short
+        %td= income.user.email
+
         %td
           = link_to "Show", income_path(income), class: 'btn btn-xs'
           = link_to "Edit", edit_income_path(income), class: 'btn btn-xs'

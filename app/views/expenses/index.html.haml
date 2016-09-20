@@ -5,21 +5,23 @@
   %thead
     %tr
       %th ID
-      %th= model_class.human_attribute_name(:spent_date)
-      %th= model_class.human_attribute_name(:description)
-      %th= model_class.human_attribute_name(:value)
-      %th= model_class.human_attribute_name(:subcategory)
-      %th= model_class.human_attribute_name(:created_at)
+      %th Value
+      %th Description
+      %th Subcategory
+      %th Spent Date
+      %th Created_at
+      %th User
       %th= t '.actions', :default => t("helpers.actions")
   %tbody
     - @expenses.each do |expense|
       %tr
         %td= expense.id
-        %td= expense.spent_date
-        %td= expense.description
         %td= expense.value
+        %td= expense.description
         %td= expense.subcategory&.title
-        %td= l expense.created_at, format: :long
+        %td= l expense.spent_date, format: :short
+        %td= l expense.created_at, format: :short
+        %td= expense.user.email
         %td
           = link_to expense_path(expense), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do
             = glyph 'info-sign'
