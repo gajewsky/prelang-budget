@@ -1,3 +1,4 @@
+# Dashboard Controller
 class DashboardController < ApplicationController
   before_filter :require_user_signed_in
 

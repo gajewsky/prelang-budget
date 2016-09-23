@@ -22,13 +22,9 @@ gem 'chartkick'
 gem 'groupdate'
 
 group :development, :test do
-  gem 'pry'
-  gem 'rspec-rails'
-  gem 'factory_girl_rails'
+  gem 'polishgeeks-dev-tools'
 end
 
 group :test do
-  gem 'shoulda-matchers'
-  gem 'cucumber-rails', require: false
   gem 'database_cleaner'
 end

@@ -1,3 +1,4 @@
+# Model representing single income/expense Category
 class Category < ActiveRecord::Base
   enum kind: { expense: 0, income: 1 }
   validates :title, presence: true, uniqueness: true

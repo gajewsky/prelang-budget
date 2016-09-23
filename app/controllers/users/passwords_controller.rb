@@ -1,7 +1,11 @@
-class Users::PasswordsController < Devise::PasswordsController
-  include ApplicationHelper
+# Users Module
+module Users
+  # Devise Password Controller
+  class PasswordsController < Devise::PasswordsController
+    include ApplicationHelper
 
-  def new
-    super
+    def new
+      super
+    end
   end
 end

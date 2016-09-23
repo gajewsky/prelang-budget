@@ -1,14 +1,13 @@
-- model_class = Category
 .page-header
-  %h1= t '.title', :default => Category
+  %h1 Category
 %table.table.table-striped
   %thead
     %tr
       %th ID
-      %th= model_class.human_attribute_name(:title)
-      %th= model_class.human_attribute_name(:description)
-      %th= model_class.human_attribute_name(:created_at)
-      %th= t '.actions', :default => t("helpers.actions")
+      %th title
+      %th description
+      %th created_at
+      %th actions
   %tbody
     - @categories.each do |category|
       %tr
@@ -17,11 +16,9 @@
         %td= category.description
         %td= l category.created_at, format: :long
         %td
-          = link_to category_path(category), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do
-            = glyph 'info-sign'
-            = glyph 'pencil'
-          = link_to category_path(category), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do
-            = glyph 'remove'
-= link_to t('.new', :default => t("helpers.links.new")), |
-  new_category_path,                                     |
-  :class => 'btn btn-primary'                            |
+          = link_to 'Show', category_path(category), class: 'btn btn-xs'
+          = link_to 'Edit', edit_category_path(category), class: 'btn btn-xs'
+          = link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'
+= link_to 'New', |
+  new_category_path,
+  class:'btn btn-primary'

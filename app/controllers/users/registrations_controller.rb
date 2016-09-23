@@ -1,15 +1,18 @@
-class Users::RegistrationsController < Devise::RegistrationsController
-  include ApplicationHelper
+module Users
+  # Devise Registrations Controller
+  class RegistrationsController < Devise::RegistrationsController
+    include ApplicationHelper
 
-  def create
-    super
-  end
+    def create
+      super
+    end
 
-  def new
-    super
-  end
+    def new
+      super
+    end
 
-  def edit
-    super
+    def edit
+      super
+    end
   end
 end

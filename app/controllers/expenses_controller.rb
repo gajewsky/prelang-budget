@@ -1,3 +1,4 @@
+# Expenses Controller
 class ExpensesController < ApplicationController
   before_filter :require_user_signed_in
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
@@ -6,14 +7,8 @@ class ExpensesController < ApplicationController
     @expenses = Expense.all
   end
 
-  def show
-  end
-
   def new
     @expense = Expense.new
-  end
-
-  def edit
   end
 
   def create
@@ -40,6 +35,7 @@ class ExpensesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_expense
     @expense = Expense.find(params[:id])

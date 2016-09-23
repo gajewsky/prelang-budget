@@ -1,3 +1,4 @@
+# Incomes Controller
 class IncomesController < ApplicationController
   before_filter :require_user_signed_in
   before_action :set_income, only: [:show, :edit, :update, :destroy]
@@ -6,14 +7,8 @@ class IncomesController < ApplicationController
     @incomes = Income.all
   end
 
-  def show
-  end
-
   def new
     @income = Income.new
-  end
-
-  def edit
   end
 
   def create
@@ -40,6 +35,7 @@ class IncomesController < ApplicationController
   end
 
   private
+
   # Use callbacks to share common setup or constraints between actions.
   def set_income
     @income = Income.find(params[:id])
