@@ -1,6 +1,7 @@
 = simple_form_for @category, html: { class: 'form-model' } do |category|
   = category.input :title
   = category.input :description
+  = category.select(:kind, Category.kinds.keys.map {|role| [role.titleize,role]})
   %h3 Tasks
   #subcategories
     = category.simple_fields_for :subcategories do |subcategory|
