@@ -1,15 +1,14 @@
-- model_class = Category
 .page-header
-  %h1= t '.title', :default => Category
+  %h1 Category
 .fieldset
   %dl
-    %dt.label.label-default= model_class.human_attribute_name(:title)
+    %dt.label.label-default title
     %dd
       %pre.prettyprint= @category.title
-    %dt.label.label-default= model_class.human_attribute_name(:description)
+    %dt.label.label-default description
     %dd
       %pre.prettyprint= @category.description
-    %dt.label.label-default= model_class.human_attribute_name(:subcategories)
+    %dt.label.label-default subcategories
     - @category.subcategories.each do |subcategory|
       %dd
         %pre.prettyprint= subcategory.title

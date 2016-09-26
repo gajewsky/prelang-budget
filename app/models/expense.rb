@@ -6,7 +6,7 @@ class Expense < ActiveRecord::Base
 
   def self.group_by_subcategory(expenses = Expense.all)
     expenses.group_by(&:subcategory).map do |subcategory, subexpenses|
-      [subcategory&.title, subexpenses.map(&:value).reduce(:+)]
+      [subcategory&.label, subexpenses.map(&:value).reduce(:+)]
     end
   end
 end
