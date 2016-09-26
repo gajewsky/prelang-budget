@@ -17,13 +17,13 @@ gem 'validates_formatting_of'
 gem 'tzinfo-data'
 gem 'haml-rails'
 gem 'cocoon'
-gem 'dashing-rails'
 gem 'chartkick'
 gem 'groupdate'
 
 gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
+gem 'capistrano-rails-console', require: false
 
 gem 'capistrano-rvm', github: "capistrano/rvm"
 
