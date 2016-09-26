@@ -1,6 +1,6 @@
 # Dashboard Controller
 class DashboardController < ApplicationController
-  before_filter :require_user_signed_in
+  before_action :authenticate_user!
 
   def index
     @incomes_sum = Income.pluck(:value).reduce(:+)

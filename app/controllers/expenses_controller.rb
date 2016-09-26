@@ -1,6 +1,6 @@
 # Expenses Controller
 class ExpensesController < ApplicationController
-  before_filter :require_user_signed_in
+  before_action :authenticate_user!
   before_action :set_expense, only: [:show, :edit, :update, :destroy]
 
   def index
