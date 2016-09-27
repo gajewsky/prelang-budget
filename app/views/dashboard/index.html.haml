@@ -1,9 +1,11 @@
-
-Incomes:
-= number_to_currency(@incomes_sum, unit: "zł", format: "%n %u")
-%br
-Expenses:
-= number_to_currency(@expenses_sum, unit: "zł", format: "%n %u")
-
-
-= pie_chart Expense.group_by_subcategory
+%section#event-index
+  .container
+    .row
+      .col-md-6
+        %h2.section-heading Incomes:
+        = humanized_money_with_symbol @incomes_sum
+        = pie_chart Income.group_by_subcategory
+      .col-md-6
+        %h2.section-heading Expenses:
+        = humanized_money_with_symbol @expenses_sum
+        = pie_chart Expense.group_by_subcategory

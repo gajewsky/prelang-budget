@@ -3,7 +3,7 @@ class DashboardController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @incomes_sum = Income.pluck(:value).reduce(:+)
-    @expenses_sum = Expense.pluck(:value).reduce(:+)
+    @incomes_sum = Income.all.map(&:amount).reduce(:+)
+    @expenses_sum = Expense.all.map(&:amount).reduce(:+)
   end
 end

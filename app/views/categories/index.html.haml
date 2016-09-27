@@ -6,7 +6,7 @@
       %th ID
       %th title
       %th description
-      %th created_at
+      %th subcategories
       %th actions
   %tbody
     - @categories.each do |category|
@@ -14,7 +14,10 @@
         %td= category.id
         %td= category.title
         %td= category.description
-        %td= l category.created_at, format: :long
+        %td
+          %ul
+          - category.subcategories.each do |subcategory|
+            %li= subcategory.title
         %td
           = link_to 'Show', category_path(category), class: 'btn btn-xs'
           = link_to 'Edit', edit_category_path(category), class: 'btn btn-xs'

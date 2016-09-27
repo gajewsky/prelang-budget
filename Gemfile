@@ -19,12 +19,11 @@ gem 'haml-rails'
 gem 'cocoon'
 gem 'chartkick'
 gem 'groupdate'
+gem 'money-rails'
 
 gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
-gem 'capistrano-rails-console', require: false
-
 gem 'capistrano-rvm', github: "capistrano/rvm"
 
 group :development, :test do

@@ -1,7 +1,7 @@
 # Expenses Controller
 class ExpensesController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_expense, only: [:show, :edit, :update, :destroy]
+  before_action :set_expense, only: %i(show edit update destroy)
 
   def index
     @expenses = Expense.all
@@ -15,7 +15,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     @expense.user = current_user
     if @expense.save
-      redirect_to expenses_url, notice: 'Expense was successfully created.'
+      redirect_to new_expense_url, notice: 'Expense was successfully created.'
     else
       render :new
     end
