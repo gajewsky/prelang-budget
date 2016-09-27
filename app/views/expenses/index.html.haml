@@ -19,7 +19,7 @@
         %td= expense.value
         %td= expense.description
         %td= expense.subcategory&.title
-        %td= l expense.spent_date, format: :short
+        %td= l expense.operation_date, format: :short
         %td= l expense.created_at, format: :short
         %td= expense.user.email
         %td

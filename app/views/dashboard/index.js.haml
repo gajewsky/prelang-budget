@@ -1,0 +1,3 @@
+$('#expenses').html('#{escape_javascript(render(partial: 'expenses', locals: { expenses: @expenses }))}')
+$('#incomes').html('#{escape_javascript(render(partial: 'incomes', locals: { incomes: @incomes }))}')
+$('#balance').html('#{escape_javascript(render(partial: 'balance', locals: { incomes: @incomes, expenses: @expenses }))}')

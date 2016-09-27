@@ -1,7 +1,7 @@
 = simple_form_for @income, validation: true, html: { class: 'form-model' } do |f|
   = f.error_notification
   .form-group
-    = f.input :earn_date, as: :date
+    = f.input :operation_date, as: :date
   .form-group
     = f.label 'Amount'
     = f.text_field :value, data: { role: 'money', a_sep: ',', a_dec: '.' }, autofocus: true, class: 'form-control numeric  required control-label col-md-2', label: 'Amount'

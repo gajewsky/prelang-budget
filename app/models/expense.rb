@@ -1,5 +1,6 @@
 # Model representing single expense
 class Expense < ActiveRecord::Base
+  include Rangable
   validates :value, presence: true
   belongs_to :subcategory
   belongs_to :user
