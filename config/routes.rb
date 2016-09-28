@@ -8,10 +8,10 @@ Rails.application.routes.draw do
   resources :incomes
 
   devise_for :users
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
 
-  # You can have the root of your site routed with "root"
   root 'expenses#new'
 
+  resources :tags, except: :show
+
+  get 'tags/:tag', to: 'expenses#index'
 end

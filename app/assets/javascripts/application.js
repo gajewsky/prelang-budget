@@ -12,7 +12,8 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require autoNumeric
+//= require jquery-ui
+//= require bootstrap-tokenfield
 //= require turbolinks
 //= require bootstrap
 //= require cocoon

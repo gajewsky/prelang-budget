@@ -1,6 +1,7 @@
-- model_class = Expense
+- tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class|
+  = link_to tag.name, tag_path(tag.name), class: css_class
 .page-header
-  %h1= t '.title', :default => Expense
+  %h1 Expense
 %table.table.table-striped
   %thead
     %tr
@@ -11,7 +12,8 @@
       %th Spent Date
       %th Created_at
       %th User
-      %th= t '.actions', :default => t("helpers.actions")
+      %th Tags
+      %th Actions
   %tbody
     - @expenses.each do |expense|
       %tr
@@ -21,13 +23,12 @@
         %td= expense.subcategory&.title
         %td= l expense.operation_date, format: :short
         %td= l expense.created_at, format: :short
-        %td= expense.user.email
+        %td= expense.user&.email
+        %td= raw expense.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
         %td
-          = link_to expense_path(expense), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do
-            = glyph 'info-sign'
-            = glyph 'pencil'
-          = link_to expense_path(expense), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do
-            = glyph 'remove'
-= link_to t('.new', :default => t("helpers.links.new")), |
+          = link_to 'Show', expense_path(expense), class: 'btn btn-xs'
+          = link_to 'Edit', edit_expense_path(expense), class: 'btn btn-xs'
+          = link_to 'Remove', expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'
+= link_to 'new', |
   new_expense_path,                                      |
-  :class => 'btn btn-primary'                            |
+  class: 'btn btn-primary'                            |

@@ -4,7 +4,12 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: %i(show edit update destroy)
 
   def index
-    @expenses = Expense.all
+    @tags = Expense.tag_counts_on(:tags)
+    if params[:tag]
+      @expenses = Expense.tagged_with(params[:tag])
+    else
+      @expenses = Expense.all
+    end
   end
 
   def new
@@ -43,8 +48,13 @@ class ExpensesController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def expense_params
-    params
-      .require(:expense)
-      .permit(:operation_date, :description, :value, :subcategory_id, :user_id)
+    params.require(:expense).permit(
+      :operation_date,
+      :description,
+      :value,
+      :subcategory_id,
+      :user_id,
+      :tag_list
+    )
   end
 end
