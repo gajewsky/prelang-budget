@@ -5,11 +5,7 @@ class ExpensesController < ApplicationController
 
   def index
     @tags = Expense.tag_counts_on(:tags)
-    if params[:tag]
-      @expenses = Expense.tagged_with(params[:tag])
-    else
-      @expenses = Expense.all
-    end
+    @expenses = params[:tag] ? Expense.tagged_with(params[:tag]) : Expense.all
   end
 
   def new

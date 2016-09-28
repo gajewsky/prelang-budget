@@ -1,3 +1,3 @@
 %h2.section-heading Incomes:
-= humanized_money_with_symbol(sum_values(incomes))
+= number_to_currency(sum_values(incomes), unit: 'zł', format: "%n %u")
 = pie_chart incomes.group_by_subcategory

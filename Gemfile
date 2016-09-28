@@ -19,9 +19,7 @@ gem 'haml-rails'
 gem 'cocoon'
 gem 'chartkick'
 gem 'groupdate'
-gem 'money-rails'
 gem 'acts-as-taggable-on'
-gem 'jquery-ui-rails'
 gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
@@ -37,4 +35,5 @@ end
 
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-tokenfield'
+  gem 'rails-assets-jquery-ui'
 end

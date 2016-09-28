@@ -1,4 +1,4 @@
 :ruby
   balance = sum_values(incomes) - sum_values(expenses)
 %h2.section-heading Balance:
-= humanized_money_with_symbol(balance)
+= number_to_currency(balance, unit: 'zł', format: "%n %u")

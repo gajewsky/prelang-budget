@@ -3,9 +3,7 @@
   .form-group
     = f.input :operation_date, as: :date
   .form-group
-    = f.label 'Amount'
-    = f.text_field :value, data: { role: 'money', a_sep: ',', a_dec: '.' }, autofocus: true, class: 'form-control numeric  required control-label col-md-2', label: 'Amount'
-  .form-group
+    = f.input :value, autofocus: true
     = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories
   .form-group
     = f.input :description, as: :text
