@@ -16,7 +16,7 @@
       = link_to 'cancel', expenses_path, class: 'btn btn-default'
 
 :javascript
-  $(document).ready(function() {
+  jQuery( document ).ready(function( $ ) {
     $('#expense_tag_list').tokenfield({
       autocomplete: {
         source: #{ActsAsTaggableOn::Tag.most_used.pluck(:name)},
