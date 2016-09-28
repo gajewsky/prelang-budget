@@ -48,6 +48,7 @@ class ExpensesController < ApplicationController
       :operation_date,
       :description,
       :value,
+      :to_divide,
       :subcategory_id,
       :user_id,
       :tag_list

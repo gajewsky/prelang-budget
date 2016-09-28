@@ -11,5 +11,6 @@
     = render partial: "elements/navbar"
     = bootstrap_flash
     = yield :monts_nav
-    .col-md-10.center-block
-      = yield
+    .row
+      .container
+        = yield

@@ -23,7 +23,7 @@ gem 'acts-as-taggable-on'
 gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
-gem 'capistrano-rvm', github: "capistrano/rvm"
+gem 'capistrano-rvm', github: 'capistrano/rvm'
 
 group :development, :test do
   gem 'polishgeeks-dev-tools'

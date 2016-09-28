@@ -1,3 +1,4 @@
-%h2.section-heading Incomes:
+.page-header
+  %h2.section-heading.text-center Incomes:
 = number_to_currency(sum_values(incomes), unit: 'zł', format: "%n %u")
 = pie_chart incomes.group_by_subcategory

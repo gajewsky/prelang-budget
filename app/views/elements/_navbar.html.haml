@@ -1,6 +1,6 @@
-%nav.navbar.navbar-default{:role => 'navigation'}
+%nav.navbar.navbar-default{ role: 'navigation' }
   .navbar-header
-    %button.navbar-toggle{ data: { target: '#navbar-collapse-1', toggle: 'collapse'}, type: 'button'}
+    %button.navbar-toggle{ data: { target: '#navbar-collapse-1', toggle: 'collapse'}, type: 'button' }
       %span.sr-only Toggle navigation
       %span.icon-bar
       %span.icon-bar
@@ -17,7 +17,7 @@
       - if defined?(Devise)
         - if user_signed_in?
           %li.dropdown
-            %a.dropdown-toggle{ data: { toggle: 'dropdown'}, href: '#'}
+            %a.dropdown-toggle{ data: { toggle: 'dropdown' }, href: '#' }
               Account
               %b.caret
             %ul.dropdown-menu

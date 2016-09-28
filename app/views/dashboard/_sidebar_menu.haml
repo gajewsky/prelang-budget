@@ -1,6 +1,0 @@
-- content_for :my_content do
-  %nav.navbar.navbar-default{:role => 'navigation'}
-    #navbar-collapse-1.collapse.navbar-collapse
-      %ul.nav.navbar-nav
-        - @expense_months.each do |month|
-          %li= link_to month.first.strftime('%B %Y'), dashboard_index_path(from: month.first, to: month.last), remote: true

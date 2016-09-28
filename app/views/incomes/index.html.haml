@@ -1,29 +1,30 @@
 .page-header
-  %h1 Incomes
-%table.table.table-striped
-  %thead
-    %tr
-      %th ID
-      %th Value
-      %th Subcategory
-      %th Description
-      %th Earn Date
-      %th Created at
-      %th User
-      %th= t '.actions', default: t("helpers.actions")
-  %tbody
-    - @incomes.each do |income|
-      %tr
-        %td= income.id
-        %td= income.value
-        %td= income.subcategory&.title
-        %td= income.description
-        %td= l income.operation_date, format: :short
-        %td= l income.created_at, format: :short
-        %td= income.user.email
+  %h2.section-heading.text-center Incomes
+.row
+  .container
+    %table.table.table-striped
+      %thead
+        %tr
+          %th
+          %th Value
+          %th Subcategory
+          %th Description
+          %th User
+          %th Earn Date
+          %th Created at
+          %th
+      %tbody
+        - @incomes.each do |income|
+          %tr
+            %td= income.id
+            %td= link_to number_to_currency(income.value, unit: 'zł', format: '%n %u'), income_path(income)
+            %td= income.subcategory&.title
+            %td= income.description
+            %td= income.user.email
+            %td= l income.operation_date
+            %td= l income.created_at
 
-        %td
-          = link_to "Show", income_path(income), class: 'btn btn-xs'
-          = link_to "Edit", edit_income_path(income), class: 'btn btn-xs'
-          = link_to "Destroy", income_path(income), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'
-= link_to 'new', new_income_path, class: 'btn btn-primary'
+            %td
+              = link_to 'Edit', edit_income_path(income), class: 'btn btn-xs'
+              = link_to 'Remove', income_path(income), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'
+    = link_to 'new', new_income_path, class: 'btn btn-primary'

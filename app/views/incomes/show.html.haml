@@ -1,15 +1,23 @@
-- model_class = Income
+
 .page-header
-  %h1= t '.title', :default => Income
-.fieldset
-  %dl
-    %dt.label.label-default= model_class.human_attribute_name(:value)
-    %dd
-      %pre.prettyprint= @income.value
-    %dt.label.label-default= model_class.human_attribute_name(:operation_date)
-    %dd
-      %pre.prettyprint= @income.operation_date
-.form-group
-  = link_to 'back', incomes_path, class: 'btn btn-default'
-  = link_to 'edit', edit_income_path(@income), class: 'btn btn-default'
-  = link_to 'destroy', income_path(@income), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |
+  %h2.section-heading.text-center Income
+.row
+  .container
+    %dl.dl-horizontal
+      %dt Amount
+      %dd= number_to_currency(@income.value, unit: 'zł', format: "%n %u")
+      %dt Category
+      %dd= @income.subcategory&.label
+      %dt Income Date
+      %dd= l @income.operation_date
+      %dt Added
+      %dd= l @income.created_at
+      %dt User
+      %dd= @income.user.email
+      %dt Description
+      %dd= @income.description
+
+    .text-center
+      = link_to 'back', incomes_path, class: 'btn btn-default'
+      = link_to 'edit', edit_income_path(@income), class: 'btn btn-default'
+      = link_to 'destroy', income_path(@income), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |

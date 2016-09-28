@@ -1,10 +1,12 @@
+# frozen_string_literal: true
 # Model representing single expense
 class Expense < ActiveRecord::Base
   include Rangable
   acts_as_taggable
-  validates :value, presence: true
   belongs_to :subcategory
   belongs_to :user
+  validates :value, presence: true
+  validates :subcategory, presence: true
 
   def self.group_by_subcategory(expenses = Expense.all)
     expenses.group_by(&:subcategory).map do |subcategory, subexpenses|

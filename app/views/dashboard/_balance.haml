@@ -1,4 +1,5 @@
 :ruby
   balance = sum_values(incomes) - sum_values(expenses)
-%h2.section-heading Balance:
-= number_to_currency(balance, unit: 'zł', format: "%n %u")
+.page-header
+  %h2.section-heading.text-center Balance:
+%h3.text-center{ class: (balance > 0 ? 'plus' : 'minus' ) }= number_to_currency(balance, unit: 'zł', format: "%n %u")
