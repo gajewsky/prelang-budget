@@ -1,0 +1,24 @@
+%table.table.table-sm.table-hover
+  %thead
+    %tr
+      %th Value
+      %th Subcategory
+      %th Description
+      %th Tags
+      %th User
+      %th Spent Date
+      %th Created_at
+      %th Actions
+  %tbody
+    - expenses.each do |expense|
+      %tr
+        %td= link_to number_to_currency(expense.value, unit: 'zł', format: '%n %u'), expense_path(expense)
+        %td= link_to expense.subcategory&.title, subcategory_path(expense.subcategory)
+        %td= expense.description
+        %td= raw expense.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+        %td= expense.user&.email
+        %td= l expense.operation_date
+        %td= l expense.created_at
+        %td
+          = link_to 'Edit', edit_expense_path(expense), class: 'btn btn-xs'
+          = link_to 'Remove', expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'

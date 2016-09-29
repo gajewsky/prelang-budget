@@ -1,9 +1,8 @@
 .page-header
-  %h2.section-heading.text-center Category
-%table.table.table-striped
+  %h2.section-heading.text-center Categories
+%table.table.table-sm.table-hover
   %thead
     %tr
-      %th
       %th Title
       %th Description
       %th Subcategories
@@ -11,17 +10,13 @@
   %tbody
     - @categories.each do |category|
       %tr
-        %td= category.id
-        %td= category.title
+        %td= link_to category.title, category_path(category)
         %td= category.description
         %td
           %ul.list-inline
             - category.subcategories.each do |subcategory|
               %li= subcategory.title
         %td
-          = link_to 'Show', category_path(category), class: 'btn btn-xs'
           = link_to 'Edit', edit_category_path(category), class: 'btn btn-xs'
           = link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'
-= link_to 'New', |
-  new_category_path,
-  class:'btn btn-primary'
+= link_to 'New', new_category_path, class:'btn btn-primary'

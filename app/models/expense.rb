@@ -15,4 +15,13 @@ class Expense < ActiveRecord::Base
       [subcategory&.label, subexpenses.map(&:value).reduce(:+)]
     end
   end
+
+  def self.group_by_category(expenses = Expense.all)
+    expenses
+      .joins(:subcategory)
+      .group_by { |e| e.subcategory.category }
+      .map do |category, subexpenses|
+        [category.title, subexpenses.map(&:value).reduce(:+)]
+      end
+  end
 end

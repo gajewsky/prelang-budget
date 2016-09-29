@@ -1,0 +1,10 @@
+.page-header
+  %h2.section-heading.text-center= @subcategory.title
+  %p= @subcategory.description
+.row
+  .container
+    %h4 Expenses
+    - if @subcategory.category.income?
+      = render partial: 'incomes/incomes', locals: { incomes: @subcategory.incomes }
+    - else
+      = render partial: 'expenses/expenses', locals: { expenses: @subcategory.expenses }

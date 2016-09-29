@@ -1,19 +1,15 @@
 
 .page-header
-  %h2.section-heading.text-center Category
+  %h2.section-heading.text-center= @category.title
+  %p= @category.description
 .row
   .container
-    %dl.dl-horizontal
-      %dt Title
-      %dd= @category.title
+    %h4 Subcategories
+    .list-group
+    - @category.subcategories.each do |subcategory|
+      = link_to subcategory.title, subcategory_path(subcategory), class: 'list-group-item'
 
-      %dt Description
-      %dd= @category.description
-
-    %dt Subcategories
-    %ul
-      - @category.subcategories.each do |subcategory|
-        %li= subcategory.title
+  .page-footer
     .text-center
       = link_to 'back', categories_path, class: 'btn btn-default'
       = link_to 'edit', edit_category_path(@category), class: 'btn btn-default'

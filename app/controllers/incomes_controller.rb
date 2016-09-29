@@ -1,6 +1,5 @@
 # Incomes Controller
 class IncomesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_income, only: %i(show edit update destroy)
 
   def index

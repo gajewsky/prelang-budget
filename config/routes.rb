@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :subcategories, only: :show
+
   resources :incomes
 
   devise_for :users

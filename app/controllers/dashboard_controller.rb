@@ -1,7 +1,5 @@
 # Dashboard Controller
 class DashboardController < ApplicationController
-  before_action :authenticate_user!
-
   def index
     @incomes = Income.spent_between(date_range)
     @expenses = Expense.spent_between(date_range)

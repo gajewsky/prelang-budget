@@ -1,6 +1,5 @@
 # Expenses Controller
 class ExpensesController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_expense, only: %i(show edit update destroy)
 
   def index

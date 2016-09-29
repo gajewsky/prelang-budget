@@ -1,35 +1,8 @@
 - tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class|
   = link_to tag.name, tag_path(tag.name), class: css_class
 .page-header
-  %h2.section-heading.text-center Expense
+  %h2.section-heading.text-center Expenses
 .row
   .container
-    %table.table.table-striped
-      %thead
-        %tr
-          %th
-          %th Value
-          %th Subcategory
-          %th Description
-          %th Tags
-          %th User
-          %th Spent Date
-          %th Created_at
-          %th Actions
-      %tbody
-        - @expenses.each do |expense|
-          %tr
-            %td= expense.id
-            %td= link_to number_to_currency(expense.value, unit: 'zł', format: '%n %u'), expense_path(expense)
-            %td= expense.subcategory&.title
-            %td= expense.description
-            %td= raw expense.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-            %td= expense.user&.email
-            %td= l expense.operation_date
-            %td= l expense.created_at
-            %td
-              = link_to 'Edit', edit_expense_path(expense), class: 'btn btn-xs'
-              = link_to 'Remove', expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'
-    = link_to 'new', |
-      new_expense_path,                                      |
-      class: 'btn btn-primary'                            |
+    = render partial: 'expenses', locals: { expenses: @expenses }
+    = link_to 'new', new_expense_path, class: 'btn btn-primary'

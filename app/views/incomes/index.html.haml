@@ -2,29 +2,5 @@
   %h2.section-heading.text-center Incomes
 .row
   .container
-    %table.table.table-striped
-      %thead
-        %tr
-          %th
-          %th Value
-          %th Subcategory
-          %th Description
-          %th User
-          %th Earn Date
-          %th Created at
-          %th
-      %tbody
-        - @incomes.each do |income|
-          %tr
-            %td= income.id
-            %td= link_to number_to_currency(income.value, unit: 'zł', format: '%n %u'), income_path(income)
-            %td= income.subcategory&.title
-            %td= income.description
-            %td= income.user.email
-            %td= l income.operation_date
-            %td= l income.created_at
-
-            %td
-              = link_to 'Edit', edit_income_path(income), class: 'btn btn-xs'
-              = link_to 'Remove', income_path(income), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'
+    = render partial: 'incomes', locals: { incomes: @incomes }
     = link_to 'new', new_income_path, class: 'btn btn-primary'
