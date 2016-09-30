@@ -1,8 +1,8 @@
-# frozen_string_literal: true
 # Model representing single expense
 class Expense < ActiveRecord::Base
   include Rangable
   acts_as_taggable
+  paginates_per 12
   belongs_to :subcategory
   belongs_to :user
   validates :value, presence: true

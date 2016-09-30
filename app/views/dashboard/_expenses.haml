@@ -1,5 +1,0 @@
-.page-header
-  %h2.section-heading.text-center Expenses:
-= number_to_currency(sum_values(expenses), unit: 'zł', format: "%n %u")
-
-= pie_chart expenses.group_by_category

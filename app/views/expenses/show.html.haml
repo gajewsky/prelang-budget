@@ -1,10 +1,9 @@
 .page-header
-  %h2.section-heading.text-center Expense
+  %h2.section-heading.text-center= number_to_currency(@expense.value, unit: 'zł', format: "%n %u")
+  %p= @expense.description
 .row
   .container
     %dl.dl-horizontal
-      %dt Amount
-      %dd= number_to_currency(@expense.value, unit: 'zł', format: "%n %u")
       %dt Category
       %dd= @expense.subcategory.label
       %dt Expense Date
@@ -13,15 +12,13 @@
       %dd= l @expense.created_at
       %dt User
       %dd= @expense.user.email
-      %dt Tags
-      %dd
-        - tag_cloud(@expense.tags, %w(tag1)) do |tag|
-          = link_to tag.name, tag_path(tag.name)
       %dt To divide?
       %dd= @expense.to_divide
-      %dt Description
-      %dd= @expense.description
 
+    %dt Tags
+    %dd
+      - tag_cloud(@expense.tags, %w(tag1)) do |tag|
+        = link_to tag.name, tag_path(tag.name)
     .text-center
       = link_to 'back', expenses_path, class: 'btn btn-default'
       = link_to 'edit', edit_expense_path(@expense), class: 'btn btn-default'

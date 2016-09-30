@@ -15,7 +15,7 @@
         %td
           %ul.list-inline
             - category.subcategories.each do |subcategory|
-              %li= subcategory.title
+              %li= link_to subcategory.title, subcategory_path(subcategory)
         %td
           = link_to 'Edit', edit_category_path(category), class: 'btn btn-xs'
           = link_to 'Delete', category_path(category), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'

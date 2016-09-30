@@ -6,3 +6,6 @@
   .container
     = render partial: 'expenses', locals: { expenses: @expenses }
     = link_to 'new', new_expense_path, class: 'btn btn-primary'
+
+  .text-center
+    = paginate @expenses

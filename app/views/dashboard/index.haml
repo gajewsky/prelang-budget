@@ -4,10 +4,5 @@
       - @expense_months.each do |month|
         %li= link_to month.first.strftime('%B %Y'), dashboard_index_path(from: month.first, to: month.last), remote: true
 
-.row
-  #expenses.col-md-12
-    = render partial: 'expenses', locals: { expenses: @expenses }
-  #incomes.col-md-12
-    = render partial: 'incomes', locals: { incomes: @incomes }
-  #balance.col-md-12
-    = render partial: 'balance', locals: { incomes: @incomes, expenses: @expenses }
+#summary
+  = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses }

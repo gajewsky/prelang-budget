@@ -20,6 +20,8 @@ gem 'cocoon'
 gem 'chartkick'
 gem 'groupdate'
 gem 'acts-as-taggable-on'
+gem 'kaminari'
+
 gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
@@ -36,4 +38,5 @@ end
 source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-tokenfield'
   gem 'rails-assets-jquery-ui'
+  gem 'rails-assets-highcharts'
 end

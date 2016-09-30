@@ -17,7 +17,7 @@
 //= require turbolinks
 //= require bootstrap
 //= require cocoon
-//= require Chart.bundle
+//= require highcharts
 //= require chartkick
 
 //= require_tree .
