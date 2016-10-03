@@ -9,7 +9,7 @@
       = image_tag('no-avatar.jpg', height: '160', width: '160', class: 'img-circle')
       %p
         = current_user.email
-        %small Member #{current_user.created_at}
+        %small Member since #{l current_user.created_at}
     %li.user-footer
       .pull-left
         = link_to 'Profile', edit_user_registration_path, class: 'btn btn-default btn-flat'

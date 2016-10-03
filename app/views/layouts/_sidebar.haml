@@ -1,7 +1,5 @@
 %aside.main-sidebar
-  / sidebar: style can be found in sidebar.less
   %section.sidebar
-    / Sidebar user panel (optional)
     .user-panel
       .pull-left.image
         = image_tag('no-avatar.jpg', height: '160', width: '160', class: 'img-circle')
@@ -19,40 +17,53 @@
     %ul.sidebar-menu
       %li.active
         = link_to dashboard_index_path do
-          %i.fa.fa-dashboard
-          %span DASHBOARD
-      %li
-        = link_to new_expense_path do
-          %i.fa.fa-link
-          %span Add Expense
-      %li
-        = link_to new_income_path do
-          %i.fa.fa-link
-          %span Add Income
-      %li
-        = link_to expenses_path do
-          %i.fa.fa-link
-          %span Expenses
-      %li
-        = link_to incomes_path do
-          %i.fa.fa-link
-          %span Incomes
-      %li
-        = link_to categories_path do
-          %i.fa.fa-link
-          %span Categories
+          %i.fa.fa-pie-chart
+          %span SUMMARY
 
       %li.treeview
-        %a{:href => "#"}
-          %i.fa.fa-link
-          %span Multilevel
+        %a{ href: '#'}
+          %i.fa.fa-usd
+          %span Incomes
           %span.pull-right-container
             %i.fa.fa-angle-left.pull-right
         %ul.treeview-menu
           %li
-            %a{:href => "#"} Link in level 2
+            = link_to new_income_path do
+              %i.fa.fa-plus
+              Add
           %li
-            %a{:href => "#"} Link in level 2
-    / /.sidebar-menu
-  / /.sidebar
-/ Content Wrapper. Contains page content
+            = link_to incomes_path do
+              %i.fa.fa-list
+              List all
+
+      %li.treeview
+        %a{ href: '#'}
+          %i.fa.fa-shopping-cart
+          %span Expenses
+          %span.pull-right-container
+            %i.fa.fa-angle-left.pull-right
+        %ul.treeview-menu
+          %li
+            = link_to new_expense_path do
+              %i.fa.fa-plus
+              Add
+          %li
+            = link_to expenses_path do
+              %i.fa.fa-list
+              List all
+
+      %li.treeview
+        %a{ href: '#'}
+          %i.fa.fa-link
+          %span Categories
+          %span.pull-right-container
+            %i.fa.fa-angle-left.pull-right
+        %ul.treeview-menu
+          %li
+            = link_to new_category_path do
+              %i.fa.fa-plus
+              Add
+          %li
+            = link_to categories_path do
+              %i.fa.fa-list
+              List all

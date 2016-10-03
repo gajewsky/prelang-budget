@@ -3,10 +3,10 @@
     Expenses
     %small Listing of all expenses
 %section.content
-  - tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class|
-    = link_to tag.name, tag_path(tag.name), class: css_class
   .row
     .container
+      - tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class|
+        = link_to tag.name, tag_path(tag.name), class: css_class
       = render partial: 'expenses', locals: { expenses: @expenses }
       = link_to 'new', new_expense_path, class: 'btn btn-primary'
 
