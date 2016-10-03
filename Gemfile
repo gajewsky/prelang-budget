@@ -39,4 +39,5 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-tokenfield'
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-highcharts'
+  gem 'rails-assets-adminlte'
 end

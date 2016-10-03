@@ -1,3 +1,12 @@
-.page-header
-  %h2.section-heading.text-center Income
+%section.content-header
+  %h1
+    Income
+    %small You can add here your income
+  %ol.breadcrumb
+    %li
+      %a{:href => "#"}
+        %i.fa.fa-dashboard
+        Level
+    %li.active Here
+%section.content
   = render partial: 'form'
