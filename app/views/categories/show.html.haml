@@ -1,10 +1,10 @@
-%section.content-header
-  %h1
-    = @category.title
-    %small= @category.description
-%section.content
-  .row
-    .container
+.container
+  %section.content-header
+    %h1
+      = @category.title
+      %small= @category.description
+  %section.content
+    .row
       %h4 Subcategories
       .list-group
       - @category.subcategories.each do |subcategory|

@@ -1,14 +1,15 @@
-%section.content-header
-  %h1
-    Expenses
-    %small Listing of all expenses
-%section.content
-  .row
+.container
+  %section.content-header
+    %h1
+      Expenses
+      %small Listing of all expenses
+  %section.content
     .container
-      - tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class|
-        = link_to tag.name, tag_path(tag.name), class: css_class
-      = render partial: 'expenses', locals: { expenses: @expenses }
-      = link_to 'new', new_expense_path, class: 'btn btn-primary'
+      .row
+        - tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class|
+          = link_to tag.name, tag_path(tag.name), class: css_class
+        = render partial: 'expenses', locals: { expenses: @expenses }
+        = link_to 'new', new_expense_path, class: 'btn btn-primary'
 
-    .text-center
-      = paginate @expenses
+      .text-center
+        = paginate @expenses

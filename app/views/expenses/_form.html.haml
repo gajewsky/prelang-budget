@@ -1,17 +1,26 @@
 .row
-  .container
-    .col-md-8
-      = minimal_form_for @expense do |f|
-        = f.error_notification
-        = f.input :operation_date, as: :date
-        = f.input :value, autofocus: true, placeholder: 'zł'
-        = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories
-        = f.input :description, as: :text
-        = f.input :tag_list
-        = f.input :to_divide, inline_label: 'To divide?'
-        .text-center
-          = f.button :submit, class: 'btn btn-primary'
-          = link_to 'cancel', expenses_path, class: 'btn btn-default'
+  .col-md-8
+    = minimal_form_for @expense do |f|
+      = f.error_notification
+      .box.box-primary
+        .box-body
+          .form-group
+            .input-group.date
+              .input-group-addon
+                %i.fa.fa-calendar
+              = f.input :operation_date, as: :string, input_html: { id: 'datepicker', class: 'form-control pull-right' }
+            %br
+            .input-group
+              = f.input :value, autofocus: true
+              %span.input-group-addon PLN
+            %br
+            = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories
+            = f.input :description, as: :text
+            = f.input :tag_list
+            = f.input :to_divide, inline_label: 'To divide?'
+
+            = f.button :submit, class: 'btn btn-primary'
+            = link_to 'cancel', expenses_path, class: 'btn btn-default'
 
 :javascript
   jQuery( document ).ready(function( $ ) {
@@ -22,4 +31,5 @@
       },
       showAutocompleteOnFocus: true
     })
+    $('#datepicker').datepicker({ autoclose: true });
   });

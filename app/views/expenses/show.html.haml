@@ -1,10 +1,10 @@
-%section.content-header
-  %h1
-    = number_to_currency(@expense.value, unit: 'zł', format: "%n %u")
-    %small= @expense.description
-%section.content
-  .row
-    .container
+.container
+  %section.content-header
+    %h1
+      = number_to_currency(@expense.value, unit: 'zł', format: "%n %u")
+      %small= @expense.description
+  %section.content
+    .row
       %dl.dl-horizontal
         %dt Category
         %dd= @expense.subcategory.label
