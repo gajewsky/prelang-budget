@@ -1,16 +1,17 @@
+%section.content-header
+  %h1
+    = @category.title
+    %small= @category.description
+%section.content
+  .row
+    .container
+      %h4 Subcategories
+      .list-group
+      - @category.subcategories.each do |subcategory|
+        = link_to subcategory.title, subcategory_path(subcategory), class: 'list-group-item'
 
-.page-header
-  %h2.section-heading.text-center= @category.title
-  %p= @category.description
-.row
-  .container
-    %h4 Subcategories
-    .list-group
-    - @category.subcategories.each do |subcategory|
-      = link_to subcategory.title, subcategory_path(subcategory), class: 'list-group-item'
-
-  .page-footer
-    .text-center
-      = link_to 'back', categories_path, class: 'btn btn-default'
-      = link_to 'edit', edit_category_path(@category), class: 'btn btn-default'
-      = link_to 'destroy', category_path(@category), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'
+    .page-footer
+      .text-center
+        = link_to 'back', categories_path, class: 'btn btn-default'
+        = link_to 'edit', edit_category_path(@category), class: 'btn btn-default'
+        = link_to 'destroy', category_path(@category), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'

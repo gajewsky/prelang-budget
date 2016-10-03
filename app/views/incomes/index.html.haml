@@ -1,9 +1,12 @@
-.page-header
-  %h2.section-heading.text-center Incomes
-.row
-  .container
-    = render partial: 'incomes', locals: { incomes: @incomes }
-    = link_to 'new', new_income_path, class: 'btn btn-primary'
+%section.content-header
+  %h1
+    Incomes
+    %small Listing of all incomes
+%section.content
+  .row
+    .container
+      = render partial: 'incomes', locals: { incomes: @incomes }
+      = link_to 'new', new_income_path, class: 'btn btn-primary'
 
-  .text-center
-    = paginate @incomes
+    .text-center
+      = paginate @incomes

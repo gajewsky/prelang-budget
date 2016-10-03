@@ -1,25 +1,27 @@
-.page-header
-  %h2.section-heading.text-center= number_to_currency(@expense.value, unit: 'zł', format: "%n %u")
-  %p= @expense.description
-.row
-  .container
-    %dl.dl-horizontal
-      %dt Category
-      %dd= @expense.subcategory.label
-      %dt Expense Date
-      %dd= l @expense.operation_date
-      %dt Added
-      %dd= l @expense.created_at
-      %dt User
-      %dd= @expense.user.email
-      %dt To divide?
-      %dd= @expense.to_divide
+%section.content-header
+  %h1
+    = number_to_currency(@expense.value, unit: 'zł', format: "%n %u")
+    %small= @expense.description
+%section.content
+  .row
+    .container
+      %dl.dl-horizontal
+        %dt Category
+        %dd= @expense.subcategory.label
+        %dt Expense Date
+        %dd= l @expense.operation_date
+        %dt Added
+        %dd= l @expense.created_at
+        %dt User
+        %dd= @expense.user.email
+        %dt To divide?
+        %dd= @expense.to_divide
 
-    %dt Tags
-    %dd
-      - tag_cloud(@expense.tags, %w(tag1)) do |tag|
-        = link_to tag.name, tag_path(tag.name)
-    .text-center
-      = link_to 'back', expenses_path, class: 'btn btn-default'
-      = link_to 'edit', edit_expense_path(@expense), class: 'btn btn-default'
-      = link_to 'destroy', expense_path(@expense), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |
+      %dt Tags
+      %dd
+        - tag_cloud(@expense.tags, %w(tag1)) do |tag|
+          = link_to tag.name, tag_path(tag.name)
+      .text-center
+        = link_to 'back', expenses_path, class: 'btn btn-default'
+        = link_to 'edit', edit_expense_path(@expense), class: 'btn btn-default'
+        = link_to 'destroy', expense_path(@expense), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |

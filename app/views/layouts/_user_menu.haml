@@ -1,0 +1,35 @@
+/ User Account Menu
+%li.dropdown.user.user-menu
+  / Menu Toggle Button
+  %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+    = image_tag('no-avatar.jpg', height: '160', width: '160', class: 'user-image')
+
+    / hidden-xs hides the username on small devices so only the image appears.
+    %span.hidden-xs= current_user.email
+  %ul.dropdown-menu
+    / The user image in the menu
+    %li.user-header
+      = image_tag('no-avatar.jpg', height: '160', width: '160', class: 'img-circle')
+      %p
+        = current_user.email
+        %small Member #{current_user.created_at}
+    / Menu Body
+    %li.user-body
+      .row
+        .col-xs-4.text-center
+          %a{:href => "#"} Followers
+        .col-xs-4.text-center
+          %a{:href => "#"} Sales
+        .col-xs-4.text-center
+          %a{:href => "#"} Friends
+      / /.row
+    / Menu Footer
+    %li.user-footer
+      .pull-left
+        %a.btn.btn-default.btn-flat{:href => "#"} Profile
+      .pull-right
+        %a.btn.btn-default.btn-flat{:href => "#"} Sign out
+/ Control Sidebar Toggle Button
+%li
+  %a{"data-toggle" => "control-sidebar", :href => "#"}
+    %i.fa.fa-gears

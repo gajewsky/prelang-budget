@@ -1,15 +1,17 @@
-.col-md-8.col-md-offset-2
-  = minimal_form_for @expense do |f|
-    = f.error_notification
-    = f.input :operation_date, as: :date
-    = f.input :value, autofocus: true, placeholder: 'zł'
-    = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories
-    = f.input :description, as: :text
-    = f.input :tag_list
-    = f.input :to_divide, inline_label: 'To divide?'
-    .text-center
-      = f.button :submit, class: 'btn btn-primary'
-      = link_to 'cancel', expenses_path, class: 'btn btn-default'
+.row
+  .container
+    .col-md-8
+      = minimal_form_for @expense do |f|
+        = f.error_notification
+        = f.input :operation_date, as: :date
+        = f.input :value, autofocus: true, placeholder: 'zł'
+        = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories
+        = f.input :description, as: :text
+        = f.input :tag_list
+        = f.input :to_divide, inline_label: 'To divide?'
+        .text-center
+          = f.button :submit, class: 'btn btn-primary'
+          = link_to 'cancel', expenses_path, class: 'btn btn-default'
 
 :javascript
   jQuery( document ).ready(function( $ ) {

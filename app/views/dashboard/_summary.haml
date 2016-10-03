@@ -7,19 +7,9 @@
   ou_share = dividable_sum - cu_share
   cu_balance = cu_share - ou_share
 
--# %h3.text-center{ class: (balance > 0 ? 'plus' : 'minus' ) }= number_to_currency(balance, unit: 'zł', format: "%n %u")
--#
--# .page-header
--#   %h2.section-heading.text-center Dividable:
--#
--# %h4.text-center You spend #{number_to_currency(cu_share, unit: 'zł', format: '%n %u')}
--# %h4.text-center The other one spend #{number_to_currency(ou_share, unit: 'zł', format: '%n %u')}
-
-%h2.section-heading.text-center Summary
 %ul.list-group
   %li.list-group-item.plus= "Incomes: #{number_to_pln(income)}"
   %li.list-group-item.minus= "Spent: #{number_to_pln(spent)}"
   %li.list-group-item{ class: (cu_balance > 0 ? 'plus' : 'minus' ) } Dividable Balance #{number_to_pln(cu_balance)}
-
 
 = pie_chart expenses.group_by_category, id: 'expenses-chart', width: '450px', height: '450px'

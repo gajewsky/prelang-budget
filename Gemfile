@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'bootstrap-sass', '3.3.5'
 gem 'bootstrap-sass-extras'
+gem 'font-awesome-sass'
 gem 'devise', github: 'plataformatec/devise'
 gem 'validates_formatting_of'
 gem 'tzinfo-data'

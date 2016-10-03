@@ -1,8 +1,10 @@
-- content_for :monts_nav do
+%section.content-header
+  %h1 Summary
+  %small
+%section.content
   .text-center
     %ul.pagination
       - @expense_months.each do |month|
         %li= link_to month.first.strftime('%B %Y'), dashboard_index_path(from: month.first, to: month.last), remote: true
-
-#summary
-  = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses }
+  #summary
+    = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses }
