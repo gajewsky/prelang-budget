@@ -1,11 +1,7 @@
 %header.main-header
-  / Logo
-  %a.logo{:href => "index2.html"}
-    / mini logo for sidebar mini 50x50 pixels
+  = link_to dashboard_index_path, class: 'logo' do
     %span.logo-mini
-      %b> A
-      LT
-    / logo for regular state and mobile devices
+      %b> B
     %span.logo-lg
       %b> Budget
   / Header Navbar
@@ -91,4 +87,5 @@
                 / end task item
             %li.footer
               %a{:href => "#"} View all tasks
-        = render partial: 'layouts/user_menu'
+        - if user_signed_in?
+          = render partial: 'layouts/user_menu'
