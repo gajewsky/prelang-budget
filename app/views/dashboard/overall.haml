@@ -1,0 +1,10 @@
+
+.container
+  %section.content-header
+    %h1 Overall Summary
+    %small
+
+  %section.content
+    .row
+      #summary
+        = render partial: 'overall_summary', locals: { incomes: @incomes, expenses: @expenses }

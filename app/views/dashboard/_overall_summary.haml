@@ -43,7 +43,7 @@
         %i.fa.fa-arrow-circle-right
 .box.box-primary
   .box-header.with-border
-    %h3.box-title Categories
+    %h3.box-title Incomes
     .box-tools.pull-right
       %button.btn.btn-box-tool{ data: { widget: 'collapse' }, type: 'button' }
         %i.fa.fa-minus
@@ -51,4 +51,16 @@
         %i.fa.fa-times
   .box-body
     .chart
-      = pie_chart expenses.group_by_category, id: 'expenses-chart', width: '450px', height: '450px'
+      = column_chart @incomes.to_a.group_by_month(&:operation_date).map { |k, v| [k, v.map(&:value).reduce(:+)] }
+
+.box.box-primary
+  .box-header.with-border
+    %h3.box-title Expenses
+    .box-tools.pull-right
+      %button.btn.btn-box-tool{ data: { widget: 'collapse' }, type: 'button' }
+        %i.fa.fa-minus
+      %button.btn.btn-box-tool{ data: { widget: 'collapse' }, type: 'button' }
+        %i.fa.fa-times
+  .box-body
+    .chart
+      = column_chart @expenses.to_a.group_by_month(&:operation_date).map { |k, v| [k, v.map(&:value).reduce(:+)] }

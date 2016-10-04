@@ -1,3 +1,7 @@
-.page-header
-  %h2.section-heading.text-center Expense
-= render partial: 'form'
+.container
+  %section.content-header
+    %h1
+      Expense
+      %small You can edit here your expense
+  %section.content
+    = render partial: 'form'

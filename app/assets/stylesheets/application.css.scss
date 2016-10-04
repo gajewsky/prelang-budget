@@ -9,6 +9,9 @@
 * compiled file so the styles you add here take precedence over styles defined in any styles
 * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
 * file per style scope.
+*= require adminlte
+*= require all-skins.min
+*= require bootstrap-daterangepicker
 *= require bootstrap-tokenfield
 *= require jquery-ui
 *= require highcharts
@@ -18,6 +21,8 @@
 @import "bootstrap_configuration";
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import "font-awesome-sprockets";
+@import "font-awesome";
 
 //->Prelang (ui_framework:twitter_bootstrap)
 
@@ -28,6 +33,10 @@
 
 .page-footer {
   padding-top: 60px;
+}
+
+.form-control {
+  border-radius: 0;
 }
 
 .tag1 { font-size: 1.0em; }

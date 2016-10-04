@@ -12,6 +12,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'simple_form'
 gem 'bootstrap-sass', '3.3.5'
 gem 'bootstrap-sass-extras'
+gem 'font-awesome-sass'
 gem 'devise', github: 'plataformatec/devise'
 gem 'validates_formatting_of'
 gem 'tzinfo-data'
@@ -21,6 +22,7 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
+gem 'groupdate'
 
 gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'
@@ -39,4 +41,7 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-bootstrap-tokenfield'
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-highcharts'
+  gem 'rails-assets-adminlte'
+  gem 'rails-assets-moment'
+  gem 'rails-assets-bootstrap-daterangepicker'
 end

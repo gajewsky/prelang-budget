@@ -1,0 +1,79 @@
+%aside.main-sidebar
+  %section.sidebar
+    .user-panel
+      .pull-left.image
+        = image_tag('no-avatar.jpg', height: '160', width: '160', class: 'img-circle')
+      .pull-left.info
+        %p= current_user.email
+        %a
+          %i.fa.fa-circle.text-success
+          Online
+    %form.sidebar-form{ action: '#', method: 'get'}
+      .input-group
+        %input.form-control{ name: 'q', placeholder: 'Search...', type: 'text'}/
+        %span.input-group-btn
+          %button#search-btn.btn.btn-flat{ name: 'search', type: 'submit'}
+            %i.fa.fa-search
+    %ul.sidebar-menu
+      %li.treeview
+        %a{ href: '#'}
+          %i.fa.fa-pie-chart
+          %span SUMMARY
+          %span.pull-right-container
+            %i.fa.fa-angle-left.pull-right
+        %ul.treeview-menu
+          %li
+            = link_to dashboard_index_path do
+              %i.fa.fa-calendar
+              Rangable
+          %li
+            = link_to dashboard_overall_path do
+              %i.fa.fa-globe
+              Overall
+      %li.treeview
+        %a{ href: '#'}
+          %i.fa.fa-usd
+          %span Incomes
+          %span.pull-right-container
+            %i.fa.fa-angle-left.pull-right
+        %ul.treeview-menu
+          %li
+            = link_to new_income_path do
+              %i.fa.fa-plus
+              Add
+          %li
+            = link_to incomes_path do
+              %i.fa.fa-list
+              List all
+
+      %li.treeview
+        %a{ href: '#'}
+          %i.fa.fa-shopping-cart
+          %span Expenses
+          %span.pull-right-container
+            %i.fa.fa-angle-left.pull-right
+        %ul.treeview-menu
+          %li
+            = link_to new_expense_path do
+              %i.fa.fa-plus
+              Add
+          %li
+            = link_to expenses_path do
+              %i.fa.fa-list
+              List all
+
+      %li.treeview
+        %a{ href: '#'}
+          %i.fa.fa-th
+          %span Categories
+          %span.pull-right-container
+            %i.fa.fa-angle-left.pull-right
+        %ul.treeview-menu
+          %li
+            = link_to new_category_path do
+              %i.fa.fa-plus
+              Add
+          %li
+            = link_to categories_path do
+              %i.fa.fa-list
+              List all

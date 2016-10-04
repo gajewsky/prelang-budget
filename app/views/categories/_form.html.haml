@@ -1,13 +1,22 @@
-= simple_form_for @category, html: { class: 'form-model' } do |category|
-  = category.input :title
-  = category.input :description
-  = category.select(:kind, Category.kinds.keys.map {|role| [role.titleize,role]})
-  #subcategories
-    = category.simple_fields_for :subcategories do |subcategory|
-      = render 'subcategory_fields', f: subcategory
-    .links
-      = link_to_add_association 'Add subcategory', category, :subcategories
-    .form-group
-    .col-md-offset-2.col-md-10
-    = category.submit nil, class: 'btn btn-primary'
-    = link_to 'cancel', categories_path, class: 'btn btn-default'
+.row
+  .col-md-8
+    = minimal_form_for @category, html: { class: 'form-model' } do |category|
+      = category.error_notification
+      .box.box-primary
+        .box-body
+          .form-group
+            = category.input :title
+            = category.input :description
+            = category.select(:kind, Category.kinds.keys.map {|role| [role.titleize,role]})
+            %br
+            #subcategories
+              %br
+              = category.simple_fields_for :subcategories do |subcategory|
+                = render 'subcategory_fields', f: subcategory
+              .links
+                %br
+                = link_to_add_association 'Add subcategory', category, :subcategories
+                %br
+            %br
+            = category.submit nil, class: 'btn btn-primary'
+            = link_to 'cancel', categories_path, class: 'btn btn-default'

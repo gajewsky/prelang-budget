@@ -1,23 +1,25 @@
-%table.table.table-sm.table-hover
-  %thead
-    %tr
-      %th Value
-      %th Subcategory
-      %th Description
-      %th User
-      %th Earn Date
-      %th Created at
-      %th
-  %tbody
-    - incomes.each do |income|
+.box-body.table-responsive.no-padding
+  %table.table.table-sm.table-hover
+    %thead
       %tr
-        %td= link_to number_to_currency(income.value, unit: 'zł', format: '%n %u'), income_path(income)
-        %td= income.subcategory&.title
-        %td= income.description
-        %td= income.user.email
-        %td= l income.operation_date
-        %td= l income.created_at
-
-        %td
-          = link_to 'Edit', edit_income_path(income), class: 'btn btn-xs'
-          = link_to 'Remove', income_path(income), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs'
+        %th Value
+        %th Subcategory
+        %th Description
+        %th User
+        %th Earn Date
+        %th Created at
+        %th
+    %tbody
+      - incomes.each do |income|
+        %tr
+          %td= link_to number_to_currency(income.value, unit: 'zł', format: '%n %u'), income_path(income)
+          %td= income.subcategory&.title
+          %td= income.description
+          %td= income.user.email
+          %td= l income.operation_date
+          %td= l income.created_at
+          %td
+            = link_to edit_income_path(income), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
+              %i.fa.fa-pencil-square-o
+            = link_to income_path(income), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', title: 'Remove', rel: 'tooltip' do
+              %i.fa.fa-trash
