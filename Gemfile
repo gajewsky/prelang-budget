@@ -42,6 +42,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-highcharts'
   gem 'rails-assets-adminlte'
-  gem 'rails-assets-moment'
   gem 'rails-assets-bootstrap-daterangepicker'
+  gem 'rails-assets-moment'
 end

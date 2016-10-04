@@ -17,4 +17,11 @@ module ApplicationHelper
     when 'alert' then 'alert alert-error'
     end
   end
+
+  def debit(expenses)
+    dividable_sum = sum_values(expenses.dividable)
+    cu_share = sum_values(expenses.dividable.where(user: current_user))
+    ou_share = dividable_sum - cu_share
+    (cu_share - ou_share) / 2.0
+  end
 end

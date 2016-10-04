@@ -10,15 +10,15 @@
 // Read Sprockets README (https://github.com/sstephenson/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require moment
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
+//= require moment
+//= require bootstrap
 //= require bootstrap-daterangepicker
 //= require adminlte
 //= require bootstrap-tokenfield
 //= require turbolinks
-//= require bootstrap
 //= require cocoon
 //= require Chart.bundle
 //= require chartkick
