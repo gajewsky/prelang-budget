@@ -5,22 +5,30 @@
       %small= @expense.description
   %section.content
     .row
-      %dl.dl-horizontal
-        %dt Category
-        %dd= @expense.subcategory.label
-        %dt Expense Date
-        %dd= l @expense.operation_date
-        %dt Added
-        %dd= l @expense.created_at
-        %dt User
-        %dd= @expense.user.email
-        %dt To divide?
-        %dd= @expense.to_divide
-
-      %dt Tags
-      %dd
-        - tag_cloud(@expense.tags, %w(tag1)) do |tag|
-          = link_to tag.name, tag_path(tag.name)
+      .col-xs-6
+        .table-responsive
+          %table.table
+            %tr
+              %th{:style => "width:50%"} Category:
+              %td= @expense.subcategory.label
+            %tr
+              %th Expense Date:
+              %td= l @expense.operation_date
+            %tr
+              %th Added:
+              %td= l @expense.created_at
+            %tr
+              %th User:
+              %td= @expense.user.email
+            %tr
+              %th Dividable:
+              %td= @expense.to_divide
+            %tr
+              %th Tags:
+              %td
+                - tag_cloud(@expense.tags, %w(tag1)) do |tag|
+                  = link_to tag.name, tag_path(tag.name)
+    .page-footer
       .text-center
         = link_to 'back', expenses_path, class: 'btn btn-default'
         = link_to 'edit', edit_expense_path(@expense), class: 'btn btn-default'

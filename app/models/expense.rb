@@ -2,10 +2,11 @@
 class Expense < ActiveRecord::Base
   include Rangable
   acts_as_taggable
-  paginates_per 12
+  paginates_per 30
   belongs_to :subcategory
   belongs_to :user
   validates :value, presence: true
+  validates :operation_date, presence: true
   validates :subcategory, presence: true
 
   scope :dividable, -> { where(to_divide: true) }

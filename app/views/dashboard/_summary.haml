@@ -5,42 +5,10 @@
   dividable_sum = sum_values(expenses.dividable)
   cu_share = sum_values(expenses.dividable.where(user: current_user))
   ou_share = dividable_sum - cu_share
-  cu_balance = cu_share - ou_share
+  debit = cu_share - ou_share
 
-.row
-  .col-lg-4.col-xs-6
-    .small-box.bg-green
-      .inner
-        %h3
-          = number_to_pln(income)
-        %p Income
-      .icon
-        %i.fa.fa-usd
-      = link_to incomes_path, class: 'small-box-footer' do
-        More info
-        %i.fa.fa-arrow-circle-right
-  .col-lg-4.col-xs-6
-    .small-box.bg-red
-      .inner
-        %h3
-          = number_to_pln(spent)
-        %p Spent
-      .icon
-        %i.fa.fa-shopping-cart
-      = link_to expenses_path, class: 'small-box-footer' do
-        More info
-        %i.fa.fa-arrow-circle-right
-  .col-lg-4.col-xs-6
-    .small-box.bg-yellow
-      .inner
-        %h3
-          = number_to_pln(balance)
-        %p Balance
-      .icon
-        %i.fa.fa-balance-scale
-      = link_to expenses_path, class: 'small-box-footer' do
-        More info
-        %i.fa.fa-arrow-circle-right
+= render partial: 'sum_boxes', locals: { income: income, spent: spent, balance: balance, debit: debit }
+
 .box.box-primary
   .box-header.with-border
     %h3.box-title Categories

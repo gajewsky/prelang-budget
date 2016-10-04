@@ -7,7 +7,5 @@
     .container
       .row
         = render partial: 'incomes', locals: { incomes: @incomes }
-        = link_to 'new', new_income_path, class: 'btn btn-primary'
-
       .text-center
         = paginate @incomes

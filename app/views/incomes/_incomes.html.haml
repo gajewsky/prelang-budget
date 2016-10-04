@@ -15,7 +15,7 @@
           %td= link_to number_to_currency(income.value, unit: 'zł', format: '%n %u'), income_path(income)
           %td= income.subcategory&.title
           %td= income.description
-          %td= income.user.email
+          %td= income.user.email.split('@').first
           %td= l income.operation_date
           %td= l income.created_at
           %td

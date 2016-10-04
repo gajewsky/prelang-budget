@@ -17,7 +17,7 @@
           %td= link_to expense.subcategory&.title, subcategory_path(expense.subcategory)
           %td= expense.description
           %td= raw expense.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-          %td= expense.user&.email
+          %td= expense.user.email.split('@').first
           %td= l expense.operation_date
           %td= l expense.created_at
           %td
