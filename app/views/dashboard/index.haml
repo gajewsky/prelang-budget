@@ -1,11 +1,40 @@
+
 .container
   %section.content-header
     %h1 Summary
     %small
+  .row
+    .pull-right.col-md-3
+      = minimal_form_for :para, url: dashboard_index_path, method: :get, remote: true do |f|
+        .input-group.input-group-sm
+          .input-group-addon
+            %i.fa.fa-calendar
+          = f.input :date, as: :string, input_html: { id: 'daterange-btn', class: 'btn btn-default control pull-right' }
+          %span.input-group-btn
+            = f.button :submit, class: 'btn btn-info btn-flat', value: 'Go!'
+
   %section.content
-    .text-center
-      %ul.pagination
-        - @expense_months.each do |month|
-          %li= link_to month.first.strftime('%B %Y'), dashboard_index_path(from: month.first, to: month.last), remote: true
-    #summary
-      = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses }
+    .row
+      #summary
+        = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses }
+
+:javascript
+  jQuery( document ).ready(function( $ ) {
+    $('#daterange-btn').daterangepicker(
+        {
+          ranges: {
+            'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+            'This Month': [moment().startOf('month'), moment().endOf('month')],
+            'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+          },
+          startDate: moment().startOf('month'),
+          endDate: moment().endOf('month'),
+          locale: {
+            format: 'DD/MM/YYYY'
+          }
+        },
+        function (start, end) {
+          $('#daterange-btn span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+        }
+    );
+  });

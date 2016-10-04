@@ -22,6 +22,7 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
+gem 'groupdate'
 
 gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'
@@ -41,4 +42,6 @@ source 'https://rails-assets.org' do
   gem 'rails-assets-jquery-ui'
   gem 'rails-assets-highcharts'
   gem 'rails-assets-adminlte'
+  gem 'rails-assets-moment'
+  gem 'rails-assets-bootstrap-daterangepicker'
 end

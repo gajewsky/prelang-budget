@@ -23,4 +23,4 @@ en:
   time:
     formats:
       default: "%d-%m-%Y"
-      short: "%b %d"
+      short: "%b %Y"
