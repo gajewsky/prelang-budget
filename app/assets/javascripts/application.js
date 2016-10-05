@@ -20,7 +20,7 @@
 //= require bootstrap-tokenfield
 //= require turbolinks
 //= require cocoon
-//= require Chart.bundle
+//= require highcharts
 //= require chartkick
 
 //= require_tree .
