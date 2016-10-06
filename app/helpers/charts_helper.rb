@@ -19,7 +19,21 @@ module ChartsHelper
     expenses.group_by_category.keys.map(&:title)
   end
 
+  def expenses_vs_incomes(expenses, incomes)
+    [
+      { name: 'Incomes', data: montly_summary(incomes) },
+      { name: 'Expenses', data: montly_summary(expenses) }
+    ]
+  end
+
   private
+
+  def montly_summary(summable)
+    summable
+      .to_a
+      .group_by_month(&:operation_date)
+      .map { |k, v| [k.strftime('%B %Y'), v.map(&:value).reduce(:+)] }
+  end
 
   def subcat_exp_sums(subcategories)
     subcategories.map { |s| s.second.map { |e| e.value.to_f.round }.reduce(:+) }
