@@ -222,6 +222,11 @@ GEM
     rails-assets-jquery-ui (1.12.1)
       rails-assets-jquery (>= 1.6)
     rails-assets-moment (2.15.1)
+    rails_12factor (0.0.3)
+      rails_serve_static_assets
+      rails_stdout_logging
+    rails_serve_static_assets (0.0.5)
+    rails_stdout_logging (0.0.5)
     railties (4.1.4)
       actionpack (= 4.1.4)
       activesupport (= 4.1.4)
@@ -352,6 +357,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise!
+  faker
   font-awesome-sass
   groupdate
   haml-rails
@@ -367,6 +373,7 @@ DEPENDENCIES
   rails-assets-highcharts!
   rails-assets-jquery-ui!
   rails-assets-moment!
+  rails_12factor
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   simple_form

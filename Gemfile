@@ -29,6 +29,8 @@ gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'capistrano-rails', '~> 1.1.1'
 gem 'capistrano-rvm', github: 'capistrano/rvm'
+gem 'faker'
+gem 'rails_12factor', group: :production
 
 group :development, :test do
   gem 'polishgeeks-dev-tools'
