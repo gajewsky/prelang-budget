@@ -3,6 +3,16 @@
   %section.content-header
     %h1 Overall Summary
     %small
+  .row
+    .pull-right.col-md-3
+      .text-center
+        = link_to dashboard_overall_path(users: current_user.id), class: 'btn btn-flat' do
+          Only you
+          %i.fa.fa-user
+        |
+        = link_to dashboard_overall_path, class: 'btn  btn-flat' do
+          All Users
+          %i.fa.fa-users
 
   %section.content
     .row

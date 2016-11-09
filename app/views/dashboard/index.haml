@@ -11,7 +11,14 @@
           = f.input :date, as: :string, input_html: { id: 'daterange-btn', class: 'btn btn-default control pull-right' }
           %span.input-group-btn
             = f.button :submit, class: 'btn btn-info btn-flat', value: 'Go!'
-
+      .text-center
+        = link_to dashboard_index_path(users: current_user.id), class: 'btn btn-flat' do
+          Only you
+          %i.fa.fa-user
+        |
+        = link_to dashboard_index_path, class: 'btn  btn-flat' do
+          All Users
+          %i.fa.fa-users
   %section.content
     .row
       #summary
