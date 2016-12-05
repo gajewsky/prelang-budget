@@ -3,7 +3,7 @@ class IncomesController < ApplicationController
   before_action :set_income, only: %i(show edit update destroy)
 
   def index
-    @incomes = Income.all.page(params[:page])
+    @incomes = Income.reorder('operation_date DESC').page(params[:page])
   end
 
   def new
