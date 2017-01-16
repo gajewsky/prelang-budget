@@ -2,7 +2,7 @@
   %section.sidebar
     .user-panel
       .pull-left.image
-        = image_tag('no-avatar.jpg', height: '160', width: '160', class: 'img-circle')
+        = image_tag(current_user.avatar || 'no-avatar.jpg', height: '160', width: '160', class: 'img-circle')
       .pull-left.info
         %p= current_user.email
         %a
