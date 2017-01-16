@@ -14,9 +14,10 @@
               = f.input :value, autofocus: true
               %span.input-group-addon PLN
             %br
-            = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories
+            = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories, prompt: "Choose a Category"
             = f.input :description, as: :text
             = f.input :tag_list
+            = f.association :user, collection: User.all, label_method: :email, prompt: current_user.email
             = f.input :to_divide, inline_label: 'To divide?'
 
             = f.button :submit, class: 'btn btn-primary'

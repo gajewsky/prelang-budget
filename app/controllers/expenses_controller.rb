@@ -14,7 +14,7 @@ class ExpensesController < ApplicationController
 
   def create
     @expense = Expense.new(expense_params)
-    @expense.user = current_user
+    @expense.user_id ||= current_user.id
     if @expense.save
       redirect_to new_expense_url, notice: 'Expense was successfully created.'
     else
