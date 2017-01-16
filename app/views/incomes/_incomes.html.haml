@@ -5,19 +5,15 @@
         %th Value
         %th Subcategory
         %th Description
-        %th User
-        %th Earn Date
-        %th Created at
+        %th Date
         %th
     %tbody
       - incomes.each do |income|
-        %tr
+        %tr{ class: ('warning' if income.user == current_user) }
           %td= link_to number_to_currency(income.value, unit: 'zł', format: '%n %u'), income_path(income)
-          %td= income.subcategory&.title
+          %td= link_to category_label(income.subcategory), subcategory_path(income.subcategory)
           %td= income.description
-          %td= income.user.email.split('@').first
-          %td= l income.operation_date
-          %td= l income.created_at
+          %td= l income.operation_date, format: '%d-%m'
           %td
             = link_to edit_income_path(income), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
               %i.fa.fa-pencil-square-o

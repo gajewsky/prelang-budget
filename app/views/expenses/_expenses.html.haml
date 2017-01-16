@@ -7,19 +7,16 @@
         %th Description
         %th Tags
         %th User
-        %th Spent Date
-        %th Created_at
+        %th Date
         %th
     %tbody
       - expenses.each do |expense|
-        %tr
+        %tr{ class: ('warning' if expense.user == current_user) }
           %td= link_to number_to_currency(expense.value, unit: 'zł', format: '%n %u'), expense_path(expense)
-          %td= link_to expense.subcategory&.title, subcategory_path(expense.subcategory)
+          %td= link_to category_label(expense.subcategory), subcategory_path(expense.subcategory)
           %td= expense.description
           %td= raw expense.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
-          %td= expense.user.email.split('@').first
-          %td= l expense.operation_date
-          %td= l expense.created_at
+          %td= l expense.operation_date, format: '%d-%m'
           %td
             = link_to edit_expense_path(expense), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
               %i.fa.fa-pencil-square-o

@@ -11,4 +11,8 @@ module MinimalFormHelper
     options = args.extract_options!
     simple_fields_for(*(args << options.merge(builder: MinimalFormBuilder)), &block)
   end
+
+  def category_label(subcategory)
+    "#{subcategory.category&.title}/#{subcategory&.title}"
+  end
 end
