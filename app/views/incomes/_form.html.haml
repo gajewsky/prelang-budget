@@ -6,7 +6,7 @@
         .input-group.date
           .input-group-addon
             %i.fa.fa-calendar
-          = f.input :operation_date, as: :string, input_html: { class: 'datepicker form-control pull-right', value: Date.today }
+          = f.input :operation_date, as: :string, placeholder: Date.today.to_s, input_html: { class: 'datepicker form-control pull-right' }
       .form-group
         .input-group
           .input-group-addon

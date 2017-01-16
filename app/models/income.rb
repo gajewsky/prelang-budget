@@ -2,6 +2,7 @@
 # Model representing single income
 class Income < ActiveRecord::Base
   include Rangable
+  before_validation :set_operation_date
   paginates_per 30
   belongs_to :subcategory
   belongs_to :user

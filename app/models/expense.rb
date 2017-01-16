@@ -1,6 +1,7 @@
 # Model representing single expense
 class Expense < ActiveRecord::Base
   include Rangable
+  before_validation :set_operation_date
   acts_as_taggable
   paginates_per 30
   belongs_to :subcategory
