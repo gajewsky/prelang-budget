@@ -3,7 +3,9 @@ class IncomesController < ApplicationController
   before_action :set_income, only: %i(show edit update destroy)
 
   def index
-    @incomes = Income.reorder('operation_date DESC').page(params[:page])
+    incomes = Income.where(user_id: user_ids)
+    @total_value = incomes.map(&:value).reduce(:+)
+    @incomes = incomes.reorder('operation_date DESC').page(params[:page])
   end
 
   def new

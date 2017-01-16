@@ -15,6 +15,10 @@ class ApplicationController < ActionController::Base
     redirect_to new_user_session_path, flash: { error: 'You must be signed in to view this page.' }
   end
 
+  def user_ids
+    params.dig('users') || User.pluck(:id)
+  end
+
   protected
 
   def configure_permitted_parameters

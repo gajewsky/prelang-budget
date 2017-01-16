@@ -19,8 +19,4 @@ class DashboardController < ApplicationController
       from.to_date..to.to_date
     end
   end
-
-  def user_ids
-    params.dig('users') || User.pluck(:id)
-  end
 end

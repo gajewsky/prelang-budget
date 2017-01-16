@@ -4,7 +4,9 @@ class ExpensesController < ApplicationController
 
   def index
     @tags = Expense.tag_counts_on(:tags)
-    expenses = params[:tag] ? Expense.tagged_with(params[:tag]) : Expense.all
+    expenses = Expense.where(user_id: user_ids)
+    expenses = expenses.tagged_with(params[:tag]) if params[:tag]
+    @total_value = expenses.map(&:value).reduce(:+)
     @expenses = expenses.reorder('operation_date DESC').page(params[:page])
   end
 
