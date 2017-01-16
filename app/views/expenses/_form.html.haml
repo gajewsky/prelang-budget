@@ -2,26 +2,41 @@
   .col-md-8
     = minimal_form_for @expense do |f|
       = f.error_notification
-      .box.box-primary
-        .box-body
-          .form-group
-            .input-group.date
-              .input-group-addon
-                %i.fa.fa-calendar
-              = f.input :operation_date, as: :string, input_html: { class: 'datepicker form-control pull-right', value: Date.today }
-            %br
-            .input-group
-              = f.input :value, autofocus: true
-              %span.input-group-addon PLN
-            %br
-            = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories, prompt: "Choose a Category"
-            = f.input :description, as: :text
-            = f.input :tag_list
-            = f.association :user, collection: User.all, label_method: :email, prompt: current_user.email
-            = f.input :to_divide, inline_label: 'To divide?'
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-user
+          = f.association :user, collection: User.all, label_method: :email, prompt: current_user.email
+      .form-group
+        .input-group.date
+          .input-group-addon
+            %i.fa.fa-calendar
+          = f.input :operation_date, as: :string, input_html: { class: 'datepicker form-control pull-right', value: Date.today }
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-credit-card
+          = f.input :value, autofocus: true
+          %span.input-group-addon PLN
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-th
+          = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories, prompt: 'Choose a Category'
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-commenting-o
+          = f.input :description, as: :text
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-tags
+          = f.input :tag_list
+      = f.input :to_divide, inline_label: 'To divide?'
 
-            = f.button :submit, class: 'btn btn-primary'
-            = link_to 'cancel', expenses_path, class: 'btn btn-default'
+      = f.button :submit, class: 'btn btn-primary'
+      = link_to 'cancel', expenses_path, class: 'btn btn-default'
 
 :javascript
   jQuery( document ).ready(function( $ ) {

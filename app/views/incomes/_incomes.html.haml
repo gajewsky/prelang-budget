@@ -12,7 +12,7 @@
         %tr{ class: ('warning' if income.user == current_user) }
           %td= link_to number_to_currency(income.value, unit: 'zł', format: '%n %u'), income_path(income)
           %td= link_to category_label(income.subcategory), subcategory_path(income.subcategory)
-          %td= income.description
+          %td= truncate(income.description, length: 60)
           %td= l income.operation_date, format: '%d-%m'
           %td
             = link_to edit_income_path(income), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do

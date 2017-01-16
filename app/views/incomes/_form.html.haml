@@ -2,23 +2,29 @@
   .col-md-8
     = minimal_form_for @income do |f|
       = f.error_notification
-      .box.box-primary
-        .box-body
-          .form-group
-            .input-group.date
-              .input-group-addon
-                %i.fa.fa-calendar
-              = f.input :operation_date, as: :string, input_html: { class: 'datepicker form-control pull-right', value: Date.today }
-            %br
-            .input-group
-              = f.input :value, autofocus: true
-              %span.input-group-addon PLN
-            %br
-            = f.association :subcategory, collection: Category.income, as: :grouped_select, group_method: :subcategories
-            = f.input :description, as: :text
-
-            = f.button :submit, class: 'btn btn-primary'
-            = link_to 'cancel', incomes_path, class: 'btn btn-default'
+      .form-group
+        .input-group.date
+          .input-group-addon
+            %i.fa.fa-calendar
+          = f.input :operation_date, as: :string, input_html: { class: 'datepicker form-control pull-right', value: Date.today }
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-credit-card
+          = f.input :value, autofocus: true
+          %span.input-group-addon PLN
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-th
+          = f.association :subcategory, collection: Category.income, as: :grouped_select, group_method: :subcategories, prompt: 'Choose a Category'
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-commenting-o
+          = f.input :description, as: :text
+      = f.button :submit, class: 'btn btn-primary'
+      = link_to 'cancel', incomes_path, class: 'btn btn-default'
 :javascript
   jQuery( document ).ready(function( $ ) {
     $('.datepicker').datepicker({ autoclose: true, dateFormat: 'dd-mm-yy' });
