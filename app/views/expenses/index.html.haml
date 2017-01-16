@@ -3,15 +3,16 @@
     %h1
       Expenses
       %small= number_to_pln(@total_value)
-    .pull-right.col-md-3
-      .text-center
-        = link_to expenses_path(users: current_user.id, tag: params['tag']), class: 'btn btn-flat' do
-          Only you
-          %i.fa.fa-user
-        |
-        = link_to expenses_path(tag: params['tag']), class: 'btn  btn-flat' do
-          All Users
-          %i.fa.fa-users
+  .pull-right
+    .text-center
+      = link_to expenses_path(users: current_user.id, tag: params['tag']), class: 'btn btn-flat' do
+        Only you
+      |
+      = link_to expenses_path(tag: params['tag'], dividable: true), class: 'btn  btn-flat' do
+        Dividable
+      |
+      = link_to expenses_path(tag: params['tag']), class: 'btn  btn-flat' do
+        All
 
   %section.content
     .container

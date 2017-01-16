@@ -6,6 +6,7 @@ class ExpensesController < ApplicationController
     @tags = Expense.tag_counts_on(:tags)
     expenses = Expense.where(user_id: user_ids)
     expenses = expenses.tagged_with(params[:tag]) if params[:tag]
+    expenses = expenses.where(to_divide: true) if params[:dividable]
     @total_value = expenses.map(&:value).reduce(:+)
     @expenses = expenses.reorder('operation_date DESC').page(params[:page])
   end

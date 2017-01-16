@@ -7,6 +7,7 @@
         %th Description
         %th Tags
         %th User
+        %th Div
         %th Date
         %th
     %tbody
@@ -17,6 +18,7 @@
           %td= truncate(expense.description, length: 60)
           %td= raw expense.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
           %td= image_tag(expense.user.avatar || 'no-avatar.jpg', height: '22', width: '22', class: 'img-circle')
+          %td= "\u2713" if expense.to_divide
           %td= l expense.operation_date, format: '%d-%m'
           %td
             = link_to edit_expense_path(expense), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
