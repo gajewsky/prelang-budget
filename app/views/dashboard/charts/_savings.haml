@@ -1,0 +1,11 @@
+
+.box.box-primary
+  .box-header.with-border
+    %h3.box-title Savings
+    .box-tools.pull-right
+      %button.btn.btn-box-tool{ data: { widget: 'collapse' }, type: 'button' }
+        %i.fa.fa-minus
+      %button.btn.btn-box-tool{ data: { widget: 'remove' }, type: 'button' }
+        %i.fa.fa-times
+  .box-body
+    = line_chart savings.map { |e| [e.operation_date.to_date, e.value.to_f] }.sort, colors: ['#4CAF50']

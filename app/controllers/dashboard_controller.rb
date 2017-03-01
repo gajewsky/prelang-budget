@@ -8,6 +8,7 @@ class DashboardController < ApplicationController
   def overall
     @incomes = Income.where(user_id: user_ids)
     @expenses = Expense.where(user_id: user_ids)
+    @savings = Saving.all
   end
 
   private

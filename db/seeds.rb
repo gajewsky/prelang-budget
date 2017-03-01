@@ -1,9 +1,9 @@
 require "faker"
 
-User.create!(email: "admin@example.com", password: "password", password_confirmation: "password")
-User.create!(email: "second@example.com", password: "password", password_confirmation: "password")
+User.create(email: "admin@example.com", password: "password", password_confirmation: "password")
+User.create(email: "second@example.com", password: "password", password_confirmation: "password")
 
-Category.create!([
+Category.create([
   {title: "Food", description: Faker::Hipster.sentence, kind: 0},
   {title: "House", description: Faker::Hipster.sentence, kind: 0},
   {title: "Transport", description: Faker::Hipster.sentence, kind: 0},
@@ -17,7 +17,7 @@ Category.create!([
   {title: "Incomes", description: Faker::Hipster.sentence, kind: 1}
 ])
 
-Subcategory.create!([
+Subcategory.create([
   {title: "House", description: Faker::Hipster.sentence, category_id: 1},
   {title: "City", description: Faker::Hipster.sentence, category_id: 1},
   {title: "Job", description: Faker::Hipster.sentence, category_id: 1},
@@ -75,7 +75,7 @@ Subcategory.create!([
   ])
 
 
-ActsAsTaggableOn::Tag.create!([
+ActsAsTaggableOn::Tag.create([
   {name: Faker::Hipster.word, taggings_count: 1},
   {name: Faker::Hipster.word, taggings_count: 1},
   {name: Faker::Hipster.word, taggings_count: 4},
@@ -91,11 +91,11 @@ ActsAsTaggableOn::Tag.create!([
 ])
 
 12.times do |n|
-  Income.create!({value: Faker::Number.decimal([3,4,5].sample, 2), operation_date: n.months.ago, subcategory_id: 52, description: Faker::Hipster.sentence, user_id: 1})
-  Income.create!({value: Faker::Number.decimal([3,4,5].sample, 2), operation_date: n.months.ago, subcategory_id: 52, description: Faker::Hipster.sentence, user_id: 2})
+  Income.create({value: Faker::Number.decimal([3,4,5].sample, 2), operation_date: n.months.ago, subcategory_id: 52, description: Faker::Hipster.sentence, user_id: 1})
+  Income.create({value: Faker::Number.decimal([3,4,5].sample, 2), operation_date: n.months.ago, subcategory_id: 52, description: Faker::Hipster.sentence, user_id: 2})
 end
 
 
 1000.times do
-  Expense.create!({operation_date: Faker::Date.between(1.year.ago, Date.today), description: Faker::Hipster.sentence, value: Faker::Number.decimal([2,2,2,2,3,3,3,4].sample, 2), subcategory_id: [*1..51].sample, user_id: [1,2].sample, to_divide: [true, false, false].sample })
+  Expense.create({operation_date: Faker::Date.between(1.year.ago, Date.today), description: Faker::Hipster.sentence, value: Faker::Number.decimal([2,2,2,2,3,3,3,4].sample, 2), subcategory_id: [*1..51].sample, user_id: [1,2].sample, to_divide: [true, false, false].sample })
 end

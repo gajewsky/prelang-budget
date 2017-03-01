@@ -11,3 +11,5 @@
   .box-body
     .chart
       = column_chart expenses_vs_incomes(expenses, incomes)
+
+= render partial: 'dashboard/charts/savings', locals: { savings: savings }

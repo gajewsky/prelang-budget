@@ -1,0 +1,19 @@
+.box-body.table-responsive.no-padding
+  %table.table.table-sm.table-hover
+    %thead
+      %tr
+        %th Value
+        %th Description
+        %th Date
+        %th
+    %tbody
+      - savings.each do |saving|
+        %tr
+          %td= link_to number_to_currency(saving.value, unit: 'zł', format: '%n %u'), saving_path(saving)
+          %td= truncate(saving.description, length: 60)
+          %td= l saving.operation_date, format: '%d-%m'
+          %td
+            = link_to edit_saving_path(saving), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
+              %i.fa.fa-pencil-square-o
+            = link_to saving_path(saving), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', title: 'Remove', rel: 'tooltip' do
+              %i.fa.fa-trash

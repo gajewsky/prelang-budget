@@ -61,7 +61,21 @@
             = link_to expenses_path do
               %i.fa.fa-list
               List all
-
+      %li.treeview
+        %a{ href: '#'}
+          %i.fa.fa-home
+          %span Savings
+          %span.pull-right-container
+            %i.fa.fa-angle-left.pull-right
+        %ul.treeview-menu
+          %li
+            = link_to new_saving_path do
+              %i.fa.fa-plus
+              Add
+          %li
+            = link_to savings_path do
+              %i.fa.fa-list
+              List all
       %li.treeview
         %a{ href: '#'}
           %i.fa.fa-th

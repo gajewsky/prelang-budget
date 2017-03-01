@@ -1,0 +1,22 @@
+.container
+  %section.content-header
+    %h1
+      = number_to_currency(@saving.value, unit: 'zł', format: "%n %u")
+      %small= @saving.description
+  %section.content
+    .row
+      .col-xs-6
+        .table-responsive
+          %table.table
+            %tr
+              %th Expense Date:
+              %td= l @saving.operation_date
+            %tr
+              %th Added:
+              %td= l @saving.created_at
+
+    .page-footer
+      .text-center
+        = link_to 'back', savings_path, class: 'btn btn-default'
+        = link_to 'edit', edit_saving_path(@saving), class: 'btn btn-default'
+        = link_to 'destroy', saving_path(@saving), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |

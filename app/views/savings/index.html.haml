@@ -1,0 +1,12 @@
+.container
+  %section.content-header
+    %h1
+      Savings
+      %small= number_to_pln(@total_value)
+
+  %section.content
+    .container
+      .row
+        = render partial: 'savings', locals: { savings: @savings }
+      .text-center
+        = paginate @savings
