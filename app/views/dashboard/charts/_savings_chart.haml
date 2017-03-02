@@ -1,0 +1,89 @@
+.box.box-primary
+  .box-header.with-border
+    %h3.box-title Expenses
+    .box-tools.pull-right
+      %button.btn.btn-box-tool{ data: { widget: 'collapse' }, type: 'button' }
+        %i.fa.fa-minus
+      %button.btn.btn-box-tool{ data: { widget: 'remove' }, type: 'button' }
+        %i.fa.fa-times
+
+  .box-body
+    #container{ style: 'width: 100%;'}
+
+:javascript
+  $(function () {
+    var savings_by_month = #{savings_by_month.to_a}
+    var sums_by_month = #{sums_by_month(savings_by_month)}
+    var categories = #{savings_by_month.keys}
+
+
+      $('#container').highcharts({
+        chart: {
+          zoomType: 'xy'
+        },
+        title: {
+            text: 'Monthly Savings'
+        },
+        xAxis: [{
+            categories: categories,
+            crosshair: true
+        }],
+        yAxis: [{ // Primary yAxis
+            labels: {
+                format: '{value}zł',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            },
+            title: {
+                text: 'Sum',
+                style: {
+                    color: Highcharts.getOptions().colors[1]
+                }
+            }
+        }, { // Secondary yAxis
+            title: {
+                text: 'Operation',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            labels: {
+                format: '{value} zł',
+                style: {
+                    color: Highcharts.getOptions().colors[0]
+                }
+            },
+            opposite: true
+        }],
+        tooltip: {
+            shared: true
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'left',
+            x: 120,
+            verticalAlign: 'top',
+            y: 100,
+            floating: true,
+            backgroundColor: (Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF'
+        },
+        series: [{
+            name: 'Operation',
+            type: 'column',
+            yAxis: 1,
+            data: savings_by_month,
+            tooltip: {
+                valueSuffix: 'zł'
+            }
+
+        }, {
+            name: 'Savings',
+            type: 'spline',
+            data: sums_by_month,
+            tooltip: {
+                valueSuffix: 'zł'
+            }
+        }]
+      });
+  });

@@ -26,6 +26,11 @@ module ChartsHelper
     ]
   end
 
+  def sums_by_month(savings)
+    sum = 0
+    savings.values.map{ |e| sum += e }
+  end
+
   private
 
   def montly_summary(summable)
