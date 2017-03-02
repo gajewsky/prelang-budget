@@ -17,8 +17,6 @@
         categories = #{savings_by_month.keys},
         colors = Highcharts.getOptions().colors
 
-
-
       $('#container').highcharts({
         chart: {
           zoomType: 'xy'
@@ -30,7 +28,7 @@
             categories: categories,
             crosshair: true
         }],
-        yAxis: [{ 
+        yAxis: [{
             labels: {
                 format: '{value}zł',
                 style: {

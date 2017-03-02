@@ -95,6 +95,9 @@ ActsAsTaggableOn::Tag.create([
   Income.create({value: Faker::Number.decimal([3,4,5].sample, 2), operation_date: n.months.ago, subcategory_id: 52, description: Faker::Hipster.sentence, user_id: 2})
 end
 
+12.times do |n|
+  Saving.create({value: Faker::Number.decimal([3,4,5].sample, 2), operation_date: n.months.ago, description: Faker::Hipster.sentence})
+end
 
 1000.times do
   Expense.create({operation_date: Faker::Date.between(1.year.ago, Date.today), description: Faker::Hipster.sentence, value: Faker::Number.decimal([2,2,2,2,3,3,3,4].sample, 2), subcategory_id: [*1..51].sample, user_id: [1,2].sample, to_divide: [true, false, false].sample })
