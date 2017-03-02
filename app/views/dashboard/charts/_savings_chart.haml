@@ -12,9 +12,11 @@
 
 :javascript
   $(function () {
-    var savings_by_month = #{savings_by_month.to_a}
-    var sums_by_month = #{sums_by_month(savings_by_month)}
-    var categories = #{savings_by_month.keys}
+    var savings_by_month = #{savings_by_month.to_a},
+        sums_by_month = #{sums_by_month(savings_by_month)},
+        categories = #{savings_by_month.keys},
+        colors = Highcharts.getOptions().colors
+
 
 
       $('#container').highcharts({
@@ -28,30 +30,30 @@
             categories: categories,
             crosshair: true
         }],
-        yAxis: [{ // Primary yAxis
+        yAxis: [{ 
             labels: {
                 format: '{value}zł',
                 style: {
-                    color: Highcharts.getOptions().colors[1]
+                    color: colors[1]
                 }
             },
             title: {
                 text: 'Sum',
                 style: {
-                    color: Highcharts.getOptions().colors[1]
+                    color: colors[1]
                 }
             }
-        }, { // Secondary yAxis
+        }, {
             title: {
                 text: 'Operation',
                 style: {
-                    color: Highcharts.getOptions().colors[0]
+                    color: colors[0]
                 }
             },
             labels: {
                 format: '{value} zł',
                 style: {
-                    color: Highcharts.getOptions().colors[0]
+                    color: colors[0]
                 }
             },
             opposite: true

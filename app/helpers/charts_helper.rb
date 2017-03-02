@@ -28,7 +28,7 @@ module ChartsHelper
 
   def sums_by_month(savings)
     sum = 0
-    savings.values.map{ |e| sum += e }
+    savings.values.map { |e| sum += e }
   end
 
   private
