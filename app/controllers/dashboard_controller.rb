@@ -2,8 +2,8 @@
 class DashboardController < ApplicationController
   def index
     @incomes = Income.spent_between(date_range).where(user_id: user_ids)
-    @expenses = Expense.spent_between(date_range).where(user_id: user_ids)
     @expenses_by_day = expenses_by_day
+    @expenses = expenses
   end
 
   def overall
@@ -13,6 +13,13 @@ class DashboardController < ApplicationController
   end
 
   private
+
+  def expenses
+    Expense
+      .includes(subcategory: :category)
+      .spent_between(date_range)
+      .where(user_id: user_ids)
+  end
 
   def date_range
     @date_range ||= begin

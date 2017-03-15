@@ -3,12 +3,8 @@ class ExpensesController < ApplicationController
   before_action :set_expense, only: %i(show edit update destroy)
 
   def index
-    @tags = Expense.tag_counts_on(:tags)
-    expenses = Expense.where(user_id: user_ids)
-    expenses = expenses.tagged_with(params[:tag]) if params[:tag]
-    expenses = expenses.where(to_divide: true) if params[:dividable]
     @total_value = expenses.map(&:value).reduce(:+)
-    @expenses = expenses.reorder('operation_date DESC').page(params[:page])
+    @expenses = expenses.page(params[:page])
   end
 
   def new
@@ -39,6 +35,19 @@ class ExpensesController < ApplicationController
   end
 
   private
+
+  def expenses
+    @expenses ||= begin
+      expenses = expenses_with_relations.where(user_id: user_ids)
+      expenses = expenses.tagged_with(params[:tag]) if params[:tag]
+      expenses = expenses.where(to_divide: true) if params[:dividable]
+      expenses.reorder('operation_date DESC')
+    end
+  end
+
+  def expenses_with_relations
+    Expense.includes(:taggings, :user, subcategory: :category)
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_expense
