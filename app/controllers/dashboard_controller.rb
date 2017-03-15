@@ -3,6 +3,7 @@ class DashboardController < ApplicationController
   def index
     @incomes = Income.spent_between(date_range).where(user_id: user_ids)
     @expenses = Expense.spent_between(date_range).where(user_id: user_ids)
+    @expenses_by_day = expenses_by_day
   end
 
   def overall
@@ -27,6 +28,17 @@ class DashboardController < ApplicationController
       .group_by_month(:operation_date)
       .sum(:value)
       .map { |date, value| [date.strftime('%b %Y'), value.to_f] }
+      .to_h
+  end
+
+  def expenses_by_day
+    Expense
+      .unscoped
+      .spent_between(date_range)
+      .where(user_id: user_ids)
+      .group_by_day(:operation_date)
+      .sum(:value)
+      .map { |date, value| [date.strftime('%a %d %b'), value.to_f] }
       .to_h
   end
 end

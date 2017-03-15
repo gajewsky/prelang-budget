@@ -8,7 +8,7 @@
         %i.fa.fa-times
 
   .box-body
-    #container{ style: 'width: 100%;'}
+    #pie-chart{ style: 'width: 100%;'}
 
 :javascript
   $(function () {
@@ -40,7 +40,7 @@
           }
       }
 
-      $('#container').highcharts({
+      $('#pie-chart').highcharts({
           chart: { type: 'pie'},
           title: { text: false },
           yAxis: { title: { text: 'Total percent market share' } },

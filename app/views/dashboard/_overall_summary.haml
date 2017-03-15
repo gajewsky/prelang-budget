@@ -12,4 +12,4 @@
     .chart
       = column_chart expenses_vs_incomes(expenses, incomes)
 
-= render partial: 'dashboard/charts/savings_chart', locals: { savings_by_month: savings_by_month }
+= render partial: 'dashboard/charts/line_and_columns_chart', locals: { data_hash: savings_by_month }

@@ -1,6 +1,5 @@
 .box.box-primary
   .box-header.with-border
-    %h3.box-title Savings
     .box-tools.pull-right
       %button.btn.btn-box-tool{ data: { widget: 'collapse' }, type: 'button' }
         %i.fa.fa-minus
@@ -8,21 +7,21 @@
         %i.fa.fa-times
 
   .box-body
-    #container{ style: 'width: 100%;'}
+    #line-and-column{ style: 'width: 100%;'}
 
 :javascript
   $(function () {
-    var savings_by_month = #{savings_by_month.to_a},
-        sums_by_month = #{sums_by_month(savings_by_month)},
-        categories = #{savings_by_month.keys},
+    var data_hash = #{data_hash.to_a},
+        sums_by_month = #{sums_by_month(data_hash)},
+        categories = #{data_hash.keys},
         colors = Highcharts.getOptions().colors
 
-      $('#container').highcharts({
+      $('#line-and-column').highcharts({
         chart: {
           zoomType: 'xy'
         },
         title: {
-            text: 'Monthly Savings'
+            text: ''
         },
         xAxis: [{
             categories: categories,
@@ -72,13 +71,13 @@
             name: 'Operation',
             type: 'column',
             yAxis: 1,
-            data: savings_by_month,
+            data: data_hash,
             tooltip: {
                 valueSuffix: 'zł'
             }
 
         }, {
-            name: 'Savings',
+            name: 'Total',
             type: 'spline',
             data: sums_by_month,
             tooltip: {

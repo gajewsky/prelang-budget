@@ -20,7 +20,7 @@
   %section.content
     .row
       #summary
-        = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses }
+        = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses, expenses_by_day: @expenses_by_day }
 
 :javascript
   jQuery( document ).ready(function( $ ) {
