@@ -1,0 +1,17 @@
+.container
+  %section.content-header
+    %h1
+      Expenses
+      %small= number_to_pln(@total_value)
+
+
+    = render partial: 'dashboard/charts/expenses_pie_chart', locals: { expenses: @expenses }
+
+  %section.content
+    .container
+      .row
+        -# - tag_cloud(@tags, %w(tag1 tag2 tag3 tag4)) do |tag, css_class|
+        -#   = link_to tag.name, tag_path(tag.name), class: css_class
+        = render partial: 'expenses/expenses', locals: { expenses: @paginated_expenses }
+      .text-center
+        = paginate @paginated_expenses

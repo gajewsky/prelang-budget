@@ -23,5 +23,5 @@ Rails.application.routes.draw do
 
   resources :tags, except: :show
 
-  get 'tags/:tag', to: 'expenses#index'
+  get 'tags/:tag', to: 'tags#index'
 end
