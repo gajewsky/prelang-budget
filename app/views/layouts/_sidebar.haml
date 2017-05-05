@@ -7,8 +7,8 @@
         %p= current_user.email
         %a
           %i.fa.fa-circle.text-success
-          Online
-    %form.sidebar-form{ action: '#', method: 'get'}
+
+    %form.sidebar-form{ action: '/expenses', method: 'get'}
       .input-group
         %input.form-control{ name: 'q', placeholder: 'Search...', type: 'text'}/
         %span.input-group-btn

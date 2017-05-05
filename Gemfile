@@ -22,6 +22,7 @@ gem 'chartkick'
 gem 'groupdate'
 gem 'acts-as-taggable-on'
 gem 'kaminari'
+gem 'pg_search'
 
 gem 'capistrano'
 gem 'capistrano-bundler', '~> 1.1.2'

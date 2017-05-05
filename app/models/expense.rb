@@ -1,6 +1,8 @@
 # Model representing single expense
 class Expense < ActiveRecord::Base
+  include PgSearch
   include Rangable
+
   before_validation :set_operation_date
   acts_as_taggable
   paginates_per 30
@@ -11,6 +13,7 @@ class Expense < ActiveRecord::Base
   validates :subcategory, presence: true
 
   scope :dividable, -> { where(to_divide: true) }
+  pg_search_scope :search_by_description, against: :description
 
   def self.group_by_category(expenses = Expense.all)
     expenses.group_by(&:subcategory).group_by { |sub| sub.first.category }

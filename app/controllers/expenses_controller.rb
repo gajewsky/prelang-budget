@@ -46,7 +46,8 @@ class ExpensesController < ApplicationController
   end
 
   def expenses_with_relations
-    Expense.includes(:taggings, :user, subcategory: :category)
+    expenses = Expense.includes(:taggings, :user, subcategory: :category)
+    params[:q] ? expenses.search_by_description(params[:q]) : expenses
   end
 
   # Use callbacks to share common setup or constraints between actions.
