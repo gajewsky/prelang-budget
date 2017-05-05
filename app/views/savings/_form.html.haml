@@ -22,5 +22,5 @@
       = link_to 'cancel', savings_path, class: 'btn btn-default'
 :javascript
   jQuery( document ).ready(function( $ ) {
-    $('.datepicker').datepicker({ autoclose: true, dateFormat: 'dd-mm-yy' });
+    $('.datepicker').datepicker({ firstDay: 1, autoclose: true, dateFormat: 'yy-mm-dd' });
   });

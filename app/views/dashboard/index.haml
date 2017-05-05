@@ -24,6 +24,8 @@
 
 :javascript
   jQuery( document ).ready(function( $ ) {
+    moment.locale('en', { week: { dow: 1 } });
+
     $('#daterange-btn').daterangepicker(
         {
           ranges: {

@@ -18,7 +18,7 @@
       %li.treeview
         %a{ href: '#'}
           %i.fa.fa-pie-chart
-          %span SUMMARY
+          %span Raports
           %span.pull-right-container
             %i.fa.fa-angle-left.pull-right
         %ul.treeview-menu
@@ -30,64 +30,23 @@
             = link_to dashboard_overall_path do
               %i.fa.fa-globe
               Overall
-      %li.treeview
-        %a{ href: '#'}
-          %i.fa.fa-usd
-          %span Incomes
-          %span.pull-right-container
-            %i.fa.fa-angle-left.pull-right
-        %ul.treeview-menu
-          %li
-            = link_to new_income_path do
-              %i.fa.fa-plus
-              Add
-          %li
-            = link_to incomes_path do
-              %i.fa.fa-list
-              List all
 
       %li.treeview
-        %a{ href: '#'}
+        = link_to incomes_path do
+          %i.fa.fa-usd
+          %span Incomes
+
+      %li.treeview
+        = link_to expenses_path do
           %i.fa.fa-shopping-cart
           %span Expenses
-          %span.pull-right-container
-            %i.fa.fa-angle-left.pull-right
-        %ul.treeview-menu
-          %li
-            = link_to new_expense_path do
-              %i.fa.fa-plus
-              Add
-          %li
-            = link_to expenses_path do
-              %i.fa.fa-list
-              List all
+
       %li.treeview
-        %a{ href: '#'}
+        = link_to savings_path do
           %i.fa.fa-home
           %span Savings
-          %span.pull-right-container
-            %i.fa.fa-angle-left.pull-right
-        %ul.treeview-menu
-          %li
-            = link_to new_saving_path do
-              %i.fa.fa-plus
-              Add
-          %li
-            = link_to savings_path do
-              %i.fa.fa-list
-              List all
+
       %li.treeview
-        %a{ href: '#'}
+        = link_to categories_path do
           %i.fa.fa-th
           %span Categories
-          %span.pull-right-container
-            %i.fa.fa-angle-left.pull-right
-        %ul.treeview-menu
-          %li
-            = link_to new_category_path do
-              %i.fa.fa-plus
-              Add
-          %li
-            = link_to categories_path do
-              %i.fa.fa-list
-              List all
