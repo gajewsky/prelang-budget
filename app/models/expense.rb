@@ -13,6 +13,7 @@ class Expense < ActiveRecord::Base
   validates :subcategory, presence: true
 
   scope :dividable, -> { where(to_divide: true) }
+  scope :trackable, -> { where(track: true) }
   pg_search_scope :search_by_description, against: :description
 
   def self.group_by_category(expenses = Expense.all)

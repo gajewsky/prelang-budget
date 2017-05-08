@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :expenses
 
+  get 'tracking/', to: 'expenses#tracking'
+
   resources :categories
 
   resources :savings
