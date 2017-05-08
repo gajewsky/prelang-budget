@@ -34,13 +34,17 @@ class ExpensesController < ApplicationController
     redirect_to expenses_url, notice: 'Expense was successfully destroyed.'
   end
 
+  def tracking
+    @trackings = expenses.trackable
+  end
+
   private
 
   def expenses
     @expenses ||= begin
       expenses = expenses_with_relations.where(user_id: user_ids)
       expenses = expenses.tagged_with(params[:tag]) if params[:tag]
-      expenses = expenses.where(to_divide: true) if params[:dividable]
+      expenses = expenses.dividable if params[:dividable]
       expenses.reorder('operation_date DESC')
     end
   end
@@ -62,6 +66,7 @@ class ExpensesController < ApplicationController
       :description,
       :value,
       :to_divide,
+      :track,
       :subcategory_id,
       :user_id,
       :tag_list

@@ -34,6 +34,7 @@
             %i.fa.fa-tags
           = f.input :tag_list
       = f.input :to_divide, inline_label: 'To divide?'
+      = f.input :track, inline_label: 'Track?'
 
       = f.button :submit, class: 'btn btn-primary'
       = link_to 'cancel', expenses_path, class: 'btn btn-default'
