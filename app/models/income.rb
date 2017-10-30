@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Model representing single income
 class Income < ActiveRecord::Base
   include Rangable
@@ -10,7 +11,7 @@ class Income < ActiveRecord::Base
   validates :operation_date, presence: true
   validates :subcategory, presence: true
 
-  def self.group_by_subcategory(incomes = Income.all)
+  def self.group_by_subcategory(incomes = Income.order('created_at DESC'))
     incomes.group_by(&:subcategory).map do |subcategory, subincomes|
       [subcategory&.title, subincomes.map(&:value).reduce(:+)]
     end

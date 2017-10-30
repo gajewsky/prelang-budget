@@ -43,7 +43,7 @@
   jQuery( document ).ready(function( $ ) {
     $('#expense_tag_list').tokenfield({
       autocomplete: {
-        source: #{ActsAsTaggableOn::Tag.most_used.pluck(:name)},
+        source: #{ActsAsTaggableOn::Tag.most_used(100).pluck(:name)},
         delay: 100
       },
       showAutocompleteOnFocus: true

@@ -8,4 +8,8 @@ class Subcategory < ActiveRecord::Base
   def label
     "#{self&.category&.title} / #{title}"
   end
+
+  def to_param
+    "#{id}-#{category.title}-#{title}".parameterize
+  end
 end

@@ -1,6 +1,6 @@
 # Expenses Controller
 class ExpensesController < ApplicationController
-  before_action :set_expense, only: %i(show edit update destroy)
+  before_action :set_expense, only: %i[show edit update destroy]
 
   def index
     @total_value = expenses.map(&:value).reduce(:+)

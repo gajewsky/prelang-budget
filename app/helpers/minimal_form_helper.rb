@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'minimal_form_builder'
 # Custom form helper
 module MinimalFormHelper

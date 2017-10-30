@@ -6,4 +6,8 @@ class Category < ActiveRecord::Base
   accepts_nested_attributes_for :subcategories,
     reject_if: :all_blank,
     allow_destroy: true
+
+  def to_param
+    "#{id}-#{title}".parameterize
+  end
 end

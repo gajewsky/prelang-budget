@@ -16,7 +16,7 @@ class Expense < ActiveRecord::Base
   scope :trackable, -> { where(track: true) }
   pg_search_scope :search_by_description, against: :description
 
-  def self.group_by_category(expenses = Expense.all)
+  def self.group_by_category(expenses = Expense.order('created_at DESC'))
     expenses.group_by(&:subcategory).group_by { |sub| sub.first.category }
   end
 end

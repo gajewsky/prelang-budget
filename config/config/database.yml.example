@@ -1,0 +1,18 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+
+development:
+  <<: *default
+  database: rug_development
+
+test:
+  <<: *default
+  database: rug_test
+
+production:
+  <<: *default
+  database: rug_production
+  username: username
+  password: password

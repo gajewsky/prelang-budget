@@ -1,9 +1,9 @@
 # Categories Controller
 class CategoriesController < ApplicationController
-  before_action :set_category, only: %i(show edit update destroy)
+  before_action :set_category, only: %i[show edit update destroy]
 
   def index
-    @categories = Category.includes(:subcategories).all
+    @categories = Category.includes(:subcategories).order('title DESC')
   end
 
   def new
@@ -43,7 +43,7 @@ class CategoriesController < ApplicationController
       :title,
       :description,
       :kind,
-      subcategories_attributes: %i(id description title _destroy)
+      subcategories_attributes: %i[id description title _destroy]
     )
   end
 end
