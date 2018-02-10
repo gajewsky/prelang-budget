@@ -1,4 +1,4 @@
-class CreateSavings < ActiveRecord::Migration
+class CreateSavings < ActiveRecord::Migration[5.0]
   def change
     create_table :savings do |t|
       t.datetime :operation_date

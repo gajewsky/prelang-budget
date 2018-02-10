@@ -10,9 +10,9 @@
 
 :javascript
   $(function () {
-    var data_hash = #{data_hash.to_a},
-        sums_by_month = #{sums_by_month(data_hash)},
-        categories = #{data_hash.keys},
+    var data_hash = #{raw data_hash.to_a},
+        sums_by_month = #{raw sums_by_month(data_hash)},
+        categories = #{raw data_hash.keys},
         colors = Highcharts.getOptions().colors
 
       $('#line-and-column').highcharts({

@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'minimal_form_builder'
 # Custom form helper
 module MinimalFormHelper
@@ -13,6 +14,6 @@ module MinimalFormHelper
   end
 
   def category_label(subcategory)
-    "#{subcategory.category&.title}/#{subcategory&.title}"
+    "#{subcategory&.category&.title}/#{subcategory&.title}"
   end
 end

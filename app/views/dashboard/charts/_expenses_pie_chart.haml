@@ -11,8 +11,8 @@
 :javascript
   $(function () {
       var colors = Highcharts.getOptions().colors,
-          categories = #{categories_titles(expenses)},
-          data = #{expense_for_chart(expenses)},
+          categories = #{raw categories_titles(expenses)},
+          data = #{raw expense_for_chart(expenses)},
           categoriesData = [],
           subcategoriesData = [],
           i,

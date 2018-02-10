@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 # Model representing single income
 class Income < ActiveRecord::Base
   include Rangable
