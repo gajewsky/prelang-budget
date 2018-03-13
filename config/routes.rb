@@ -8,6 +8,8 @@ Rails.application.routes.draw do
 
   resources :categories
 
+  resources :contractors
+
   resources :savings
 
   resources :subcategories, only: :show

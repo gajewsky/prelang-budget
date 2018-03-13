@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180210154036) do
+ActiveRecord::Schema.define(version: 20180313185625) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(version: 20180210154036) do
     t.integer "kind", default: 0
   end
 
+  create_table "contractors", force: :cascade do |t|
+    t.string "name"
+    t.text "description"
+    t.string "card_info"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "expenses", id: :serial, force: :cascade do |t|
     t.datetime "operation_date"
     t.text "description"
@@ -33,6 +41,8 @@ ActiveRecord::Schema.define(version: 20180210154036) do
     t.datetime "updated_at", null: false
     t.boolean "to_divide", default: false
     t.boolean "track", default: false
+    t.bigint "contractor_id"
+    t.index ["contractor_id"], name: "index_expenses_on_contractor_id"
     t.index ["subcategory_id"], name: "index_expenses_on_subcategory_id"
     t.index ["user_id"], name: "index_expenses_on_user_id"
   end

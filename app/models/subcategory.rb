@@ -1,5 +1,5 @@
 # Model representing single income/expense subcategory
-class Subcategory < ActiveRecord::Base
+class Subcategory < ApplicationRecord
   validates :title, presence: true
   belongs_to :category
   has_many :expenses

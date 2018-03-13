@@ -68,6 +68,7 @@ class ExpensesController < ApplicationController
       :to_divide,
       :track,
       :subcategory_id,
+      :contractor_id,
       :user_id,
       :tag_list
     )

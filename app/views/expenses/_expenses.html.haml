@@ -3,10 +3,11 @@
     %thead
       %tr
         %th User
-        %th 
+        %th
         %th Subcategory
         %th Description
         %th Tags
+        %th Contractor
         %th Date
         %th Value
         %th
@@ -18,6 +19,7 @@
           %td= link_to category_label(expense.subcategory), subcategory_path(expense.subcategory)
           %td= truncate(expense.description, length: 60)
           %td= raw expense.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
+          %td= link_to expense.contractor.name, contractor_path(expense.contractor) if expense.contractor
           %td= l expense.operation_date, format: '%d-%m'
           %td= link_to number_to_currency(expense.value, unit: 'zł', format: '%n %u'), expense_path(expense)
           %td
