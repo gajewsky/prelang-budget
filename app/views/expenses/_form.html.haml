@@ -28,6 +28,13 @@
           .input-group-addon
             %i.fa.fa-commenting-o
           = f.input :description, as: :text
+
+      .form-group
+        .input-group
+          .input-group-addon
+            %i.fa.fa-shopping-bag
+          = f.association :contractor, collection: Contractor.all, prompt: 'Choose the contactor'
+
       .form-group
         .input-group
           .input-group-addon
@@ -43,7 +50,7 @@
   jQuery( document ).ready(function( $ ) {
     $('#expense_tag_list').tokenfield({
       autocomplete: {
-        source: #{ActsAsTaggableOn::Tag.most_used.pluck(:name)},
+        source: #{raw ActsAsTaggableOn::Tag.most_used.pluck(:name)},
         delay: 100
       },
       showAutocompleteOnFocus: true

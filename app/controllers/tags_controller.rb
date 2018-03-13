@@ -1,7 +1,6 @@
 # Tags Controller
 class TagsController < ApplicationController
   def index
-    @expenses = expenses
     @total_value = expenses.map(&:value).reduce(:+)
     @paginated_expenses = expenses.page(params[:page])
   end

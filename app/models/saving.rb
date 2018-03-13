@@ -1,5 +1,5 @@
 # Model representing single saving
-class Saving < ActiveRecord::Base
+class Saving < ApplicationRecord
   include Rangable
   before_validation :set_operation_date
 

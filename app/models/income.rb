@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 # Model representing single income
-class Income < ActiveRecord::Base
+class Income < ApplicationRecord
   include Rangable
   before_validation :set_operation_date
   paginates_per 30

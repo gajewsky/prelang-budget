@@ -1,5 +1,5 @@
 # Model representing single expense
-class Expense < ActiveRecord::Base
+class Expense < ApplicationRecord
   include PgSearch
   include Rangable
 
@@ -8,6 +8,7 @@ class Expense < ActiveRecord::Base
   paginates_per 30
   belongs_to :subcategory
   belongs_to :user
+  belongs_to :contractor
   validates :value, presence: true
   validates :operation_date, presence: true
   validates :subcategory, presence: true

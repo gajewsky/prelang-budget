@@ -18,21 +18,28 @@ AllCops:
     - lib/tasks/**/*.rake
     - lib/tasks/**/*.rb
 
-AlignParameters:
-  Enabled: false
-ClassLength:
+Metrics/ClassLength:
   CountComments: false
   Max: 200
-LineLength:
+Metrics/LineLength:
   Max: 99
-MethodLength:
+Metrics/MethodLength:
   CountComments: false
   Max: 15
 Metrics/AbcSize:
   Max: 25
-Style/MultilineOperationIndentation:
+Layout/MultilineOperationIndentation:
   EnforcedStyle: indented
 
-
-inherit_from:
-  - .rubocop_todo.yml
+AlignParameters:
+  Enabled: false
+Bundler/OrderedGems:
+  Enabled: false
+Gemspec/OrderedDependencies:
+  Enabled: false
+Style/Alias:
+  Enabled: false
+Style/FrozenStringLiteralComment:
+  Enabled: false
+Style/Documentation:
+  Enabled: false
