@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :bills
 
   get 'tracking/', to: 'expenses#tracking'
-  get 'expenses/', to: 'bills#index'
+  get 'expenses/', to: 'expenses#index'
 
   resources :categories
 

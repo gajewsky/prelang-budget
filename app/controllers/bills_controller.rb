@@ -1,5 +1,7 @@
 # Bills Controller
 class BillsController < ApplicationController
+  before_action :set_bill, only: %i[show edit update destroy]
+
   def index
     @total_value = bills.map(&:value).reduce(:+)
     @bills = bills.page(params[:page])
@@ -8,14 +10,6 @@ class BillsController < ApplicationController
   def new
     @bill = Bill.new
     @bill.expenses.build
-  end
-
-  def edit
-    @bill = bill
-  end
-
-  def show
-    @bill = bill
   end
 
   def create
@@ -38,7 +32,7 @@ class BillsController < ApplicationController
   end
 
   def destroy
-    bill.destroy
+    @bill.destroy
     redirect_to bills_url, notice: 'Bill was successfully destroyed.'
   end
 
@@ -62,8 +56,8 @@ class BillsController < ApplicationController
     params[:q] ? bills.search_by_description(params[:q]) : bills
   end
 
-  def bill
-    @bill ||= Bill.find(params[:id])
+  def set_bill
+    @bill = Bill.find(params[:id])
   end
 
   def bill_params
