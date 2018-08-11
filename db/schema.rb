@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180811124310) do
+ActiveRecord::Schema.define(version: 2018_08_11_130846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bills", force: :cascade do |t|
+    t.datetime "operation_date"
+    t.bigint "user_id"
+    t.bigint "contractor_id"
+    t.boolean "to_divide", default: false
+    t.boolean "track", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["contractor_id"], name: "index_bills_on_contractor_id"
+    t.index ["user_id"], name: "index_bills_on_user_id"
+  end
 
   create_table "categories", id: :serial, force: :cascade do |t|
     t.string "title", limit: 255
@@ -42,6 +54,8 @@ ActiveRecord::Schema.define(version: 20180811124310) do
     t.boolean "to_divide", default: false
     t.boolean "track", default: false
     t.bigint "contractor_id"
+    t.bigint "bill_id"
+    t.index ["bill_id"], name: "index_expenses_on_bill_id"
     t.index ["contractor_id"], name: "index_expenses_on_contractor_id"
     t.index ["subcategory_id"], name: "index_expenses_on_subcategory_id"
     t.index ["user_id"], name: "index_expenses_on_user_id"

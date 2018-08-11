@@ -18,6 +18,6 @@
   %section.content
     .container
       .row
-        = render partial: 'expenses/expenses', locals: { expenses: @paginated_expenses }
+        = render partial: 'bills/bills', locals: { bills: @paginated_bills }
       .text-center
-        = paginate @paginated_expenses
+        = paginate @paginated_bills
