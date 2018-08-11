@@ -2,9 +2,11 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   get 'dashboard/overall'
 
-  resources :expenses
+  resources :expenses, only: %i[show destroy]
+  resources :bills
 
   get 'tracking/', to: 'expenses#tracking'
+  get 'expenses/', to: 'bills#index'
 
   resources :categories
 
@@ -23,7 +25,7 @@ Rails.application.routes.draw do
     put 'users' => 'devise/registrations#update', as: 'user_registration'
   end
 
-  root 'expenses#new'
+  root 'bills#new'
 
   resources :tags, except: :show
 

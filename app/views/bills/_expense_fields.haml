@@ -1,0 +1,30 @@
+.row
+  .nested-fields.col-md-12
+    = f.error_notification
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-credit-card
+        = f.input :value, autofocus: true
+        %span.input-group-addon PLN
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-th
+        = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories, prompt: 'Choose a Category'
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-commenting-o
+        = f.input :description, as: :text
+    .form-group
+      .input-group
+        .input-group-addon
+          %i.fa.fa-tags
+        = f.input :tag_list
+
+
+    = f.input :track, inline_label: 'Track?'
+    = link_to_remove_association f do
+      %i.fa.fa-times.fa-2x.pull-right
+    %br

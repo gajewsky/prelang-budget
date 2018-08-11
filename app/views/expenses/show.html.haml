@@ -2,7 +2,7 @@
   %section.content-header
     %h1
       = number_to_currency(@expense.value, unit: 'zł', format: "%n %u")
-      %small= @expense.description
+      %small= link_to 'show bill', bill_path(@expense.bill)
   %section.content
     .row
       .col-xs-6
@@ -10,19 +10,16 @@
           %table.table
             %tr
               %th{:style => "width:50%"} Category:
-              %td= @expense.subcategory.label
+              %td= link_to category_label(@expense.subcategory), subcategory_path(@expense.subcategory)
             %tr
               %th Expense Date:
-              %td= l @expense.operation_date
+              %td= l @expense.bill.operation_date
             %tr
               %th Added:
               %td= l @expense.created_at
             %tr
               %th User:
               %td= @expense.user.email
-            %tr
-              %th Dividable:
-              %td= @expense.to_divide
             %tr
               %th Tags:
               %td
@@ -31,5 +28,4 @@
     .page-footer
       .text-center
         = link_to 'back', expenses_path, class: 'btn btn-default'
-        = link_to 'edit', edit_expense_path(@expense), class: 'btn btn-default'
         = link_to 'destroy', expense_path(@expense), method: 'delete', data: { confirm: 'Are you sure?'}, class: 'btn btn-danger'                                                                                   |

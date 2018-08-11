@@ -4,14 +4,22 @@ class DashboardController < ApplicationController
     @incomes = Income.spent_between(date_range).where(user_id: user_ids)
     @expenses_by_day = expenses_by_day
     @expenses = expenses
+    @bills = bills.spent_between(date_range)
   end
 
   def overall
     @incomes = Income.where(user_id: user_ids)
     @expenses = Expense.where(user_id: user_ids)
+    @bills = bills
   end
 
   private
+
+  def bills
+    Bill
+      .includes({ expenses: [ { subcategory: :category }, :taggings] }, :user, :contractor)
+      .where(user_id: user_ids)
+  end
 
   def expenses
     Expense

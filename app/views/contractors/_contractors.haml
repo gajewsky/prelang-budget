@@ -5,15 +5,15 @@
         %th Name
         %th Description
         %th Card Info
-        %th
+        %th.col-sm-1
     %tbody
       - contractors.each do |contractor|
         %tr
           %td= link_to contractor.name, contractor_path(contractor)
-          %td= contractor.description
-          %td= contractor.card_info
+          %td= truncate(contractor.description, length: 30)
+          %td= truncate(contractor.card_info, length: 30)
 
-          %td
+          %td.col-sm-1
             = link_to edit_contractor_path(contractor), class: 'btn btn-xs btn-warning', title: 'Edit', rel: 'tooltip' do
               %i.fa.fa-pencil-square-o
             = link_to contractor_path(contractor), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', title: 'Remove', rel: 'tooltip' do

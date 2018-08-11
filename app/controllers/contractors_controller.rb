@@ -7,10 +7,14 @@ class ContractorsController < ApplicationController
     @contractor = Contractor.new
   end
 
-  def create
-    contractor = Contractor.new(contractor_params)
+  def edit
+    @contractor = contractor
+  end
 
-    if contractor.save
+  def create
+    @contractor = Contractor.new(contractor_params)
+
+    if @contractor.save
       redirect_to contractors_url, notice: 'Contractor was successfully created.'
     else
       render :new
@@ -18,7 +22,7 @@ class ContractorsController < ApplicationController
   end
 
   def update
-    if contractor.update(contractor_params)
+    if @contractor.update(contractor_params)
       redirect_to contractors_url, notice: 'Contractor was successfully updated.'
     else
       render :edit
@@ -29,7 +33,7 @@ class ContractorsController < ApplicationController
     contractor
 
     @total_value = expenses.map(&:value).reduce(:+)
-    @paginated_expenses = expenses.page(params[:page])
+    @paginated_bills = contractor.bills.reorder('operation_date DESC').page(params[:page])
   end
 
   def destroy
