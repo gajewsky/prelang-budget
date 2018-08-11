@@ -1,14 +1,11 @@
 class ContractorsController < ApplicationController
+  before_action :set_contractor, only: %i[show edit update destroy]
   def index
     @contractors = Contractor.all
   end
 
   def new
     @contractor = Contractor.new
-  end
-
-  def edit
-    @contractor = contractor
   end
 
   def create
@@ -30,8 +27,6 @@ class ContractorsController < ApplicationController
   end
 
   def show
-    contractor
-
     @total_value = expenses.map(&:value).reduce(:+)
     @paginated_bills = contractor.bills.reorder('operation_date DESC').page(params[:page])
   end
@@ -44,8 +39,8 @@ class ContractorsController < ApplicationController
 
   private
 
-  def contractor
-    @contractor ||= Contractor.find(params[:id])
+  def set_contractor
+    @contractor = Contractor.find(params[:id])
   end
 
   def contractor_params

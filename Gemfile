@@ -24,7 +24,7 @@ gem 'turbolinks'
 gem 'tzinfo-data'
 gem 'uglifier'
 gem 'validates_formatting_of'
-
+gem 'therubyracer'
 gem 'capistrano'
 gem 'capistrano-bundler'
 gem 'capistrano-rails'
