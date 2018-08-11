@@ -10,16 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180313185625) do
+ActiveRecord::Schema.define(version: 20180811124310) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "categories", id: :serial, force: :cascade do |t|
-    t.string "title"
+    t.string "title", limit: 255
     t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer "kind", default: 0
   end
 
@@ -37,8 +37,8 @@ ActiveRecord::Schema.define(version: 20180313185625) do
     t.decimal "value"
     t.integer "subcategory_id"
     t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.boolean "to_divide", default: false
     t.boolean "track", default: false
     t.bigint "contractor_id"
@@ -51,37 +51,29 @@ ActiveRecord::Schema.define(version: 20180313185625) do
     t.decimal "value"
     t.datetime "operation_date"
     t.integer "subcategory_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.text "description"
     t.integer "user_id"
     t.index ["subcategory_id"], name: "index_incomes_on_subcategory_id"
     t.index ["user_id"], name: "index_incomes_on_user_id"
   end
 
-  create_table "savings", id: :serial, force: :cascade do |t|
-    t.datetime "operation_date"
-    t.text "description"
-    t.decimal "value"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "subcategories", id: :serial, force: :cascade do |t|
-    t.string "title"
+    t.string "title", limit: 255
     t.text "description"
     t.integer "category_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.index ["category_id"], name: "index_subcategories_on_category_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
-    t.string "taggable_type"
     t.integer "taggable_id"
-    t.string "tagger_type"
+    t.string "taggable_type", limit: 255
     t.integer "tagger_id"
+    t.string "tagger_type", limit: 255
     t.string "context", limit: 128
     t.datetime "created_at"
     t.index ["context"], name: "index_taggings_on_context"
@@ -90,23 +82,21 @@ ActiveRecord::Schema.define(version: 20180313185625) do
     t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context"
     t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy"
     t.index ["taggable_id"], name: "index_taggings_on_taggable_id"
-    t.index ["taggable_type", "taggable_id"], name: "index_taggings_on_taggable_type_and_taggable_id"
     t.index ["taggable_type"], name: "index_taggings_on_taggable_type"
     t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type"
     t.index ["tagger_id"], name: "index_taggings_on_tagger_id"
-    t.index ["tagger_type", "tagger_id"], name: "index_taggings_on_tagger_type_and_tagger_id"
   end
 
   create_table "tags", id: :serial, force: :cascade do |t|
-    t.string "name"
+    t.string "name", limit: 255
     t.integer "taggings_count", default: 0
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", id: :serial, force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
+    t.string "email", limit: 255, default: "", null: false
+    t.string "encrypted_password", limit: 255, default: "", null: false
+    t.string "reset_password_token", limit: 255
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.integer "sign_in_count", default: 0, null: false
@@ -116,7 +106,7 @@ ActiveRecord::Schema.define(version: 20180313185625) do
     t.inet "last_sign_in_ip"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "avatar"
+    t.string "avatar", limit: 255
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
