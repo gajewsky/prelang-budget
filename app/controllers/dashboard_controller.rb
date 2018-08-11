@@ -17,7 +17,7 @@ class DashboardController < ApplicationController
 
   def bills
     Bill
-      .includes({ expenses: [ { subcategory: :category }, :taggings] }, :user, :contractor)
+      .includes({ expenses: [{ subcategory: :category }, :taggings] }, :user, :contractor)
       .where(user_id: user_ids)
   end
 

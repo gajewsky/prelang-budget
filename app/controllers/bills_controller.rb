@@ -42,10 +42,6 @@ class BillsController < ApplicationController
     redirect_to bills_url, notice: 'Bill was successfully destroyed.'
   end
 
-  def tracking
-    @trackings ||= bills.trackable
-  end
-
   private
 
   def bills
@@ -58,7 +54,11 @@ class BillsController < ApplicationController
   end
 
   def bills_with_relations
-    bills = Bill.includes({ expenses: [{ subcategory: :category }, :taggings] }, :user, :contractor)
+    bills = Bill.includes(
+      { expenses: [{ subcategory: :category }, :taggings] },
+      :user,
+      :contractor
+    )
     params[:q] ? bills.search_by_description(params[:q]) : bills
   end
 
@@ -72,7 +72,9 @@ class BillsController < ApplicationController
       :subcategory_id,
       :contractor_id,
       :user_id,
-      expenses_attributes: %i[id description value to_divide track subcategory_id  tag_list _destroy]
+      expenses_attributes: %i[
+        id description value to_divide track subcategory_id _destroy
+      ]
     )
   end
 end
