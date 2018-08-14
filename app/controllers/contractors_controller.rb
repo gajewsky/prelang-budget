@@ -28,11 +28,11 @@ class ContractorsController < ApplicationController
 
   def show
     @total_value = expenses.map(&:value).reduce(:+)
-    @paginated_bills = contractor.bills.reorder('operation_date DESC').page(params[:page])
+    @paginated_bills = @contractor.bills.reorder('operation_date DESC').page(params[:page])
   end
 
   def destroy
-    contractor.destroy
+    @contractor.destroy
 
     redirect_to contractors_url, notice: 'Contractor was successfully destroyed.'
   end
@@ -52,6 +52,6 @@ class ContractorsController < ApplicationController
   end
 
   def expenses
-    @expenses ||= contractor.expenses.reorder('operation_date DESC')
+    @expenses ||= @contractor.expenses.reorder('operation_date DESC')
   end
 end
