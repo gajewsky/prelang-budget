@@ -67,7 +67,7 @@ class BillsController < ApplicationController
       :contractor_id,
       :user_id,
       expenses_attributes: %i[
-        id description value to_divide track subcategory_id _destroy
+        id description value to_divide track subcategory_id _destroy tag_list
       ]
     )
   end
