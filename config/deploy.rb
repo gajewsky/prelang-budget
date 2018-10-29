@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 
 set :application, 'budget2'
-set :repo_url, 'git@github.com:gajewsky/calincome.git'
+set :repo_url, 'git@github.com:gajewsky/budget.git'
 
 set :deploy_to, '/home/deploy/budget'
 
