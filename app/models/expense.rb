@@ -3,7 +3,6 @@ class Expense < ApplicationRecord
   include PgSearch
   include Rangable
 
-  before_validation :set_operation_date
   before_validation :set_fields_from_bill
   acts_as_taggable
   paginates_per 30
@@ -28,5 +27,6 @@ class Expense < ApplicationRecord
     return unless bill
     self.contractor_id = bill.contractor_id
     self.user_id = bill.user_id
+    self.operation_date = bill.operation_date
   end
 end
