@@ -15,9 +15,7 @@
           %span.input-group-addon PLN
       .form-group
         .input-group
-          .input-group-addon
-            %i.fa.fa-th
-          = f.association :subcategory, collection: Category.income, as: :grouped_select, group_method: :subcategories, prompt: 'Choose a Category'
+        = f.association :subcategory, collection: Category.income, as: :grouped_select, group_method: :subcategories, prompt: 'Choose a Category', input_html: { class: 'subcategory-selectize' }
       .form-group
         .input-group
           .input-group-addon
@@ -28,4 +26,5 @@
 :javascript
   jQuery( document ).ready(function( $ ) {
     $('.datepicker').datepicker({ firstDay: 1, autoclose: true, dateFormat: 'yy-mm-dd' });
+    $('.subcategory-selectize').selectize();
   });

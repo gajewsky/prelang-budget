@@ -5,13 +5,11 @@
       .input-group
         .input-group-addon
           %i.fa.fa-credit-card
-        = f.input :value, autofocus: true
+        = f.input :value, autofocus: true, input_html: { autocomplete: 'off' }
         %span.input-group-addon PLN
     .form-group
       .input-group
-        .input-group-addon
-          %i.fa.fa-th
-        = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories, prompt: 'Choose a Category'
+      = f.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories, prompt: 'Choose a Category', input_html: { class: 'subcategory-selectize' }
     .form-group
       .input-group
         .input-group-addon
@@ -23,7 +21,6 @@
           %i.fa.fa-tags
         = f.input :tag_list, input_html: { class: 'expense-tag-list' }
 
-
     = f.input :track, inline_label: 'Track?'
     = link_to_remove_association f do
       %i.fa.fa-times.fa-2x.pull-right
@@ -33,9 +30,10 @@
   jQuery( document ).ready(function( $ ) {
     $('.expense-tag-list').tokenfield({
       autocomplete: {
-        source: #{raw ActsAsTaggableOn::Tag.most_used.pluck(:name)},
+        source: #{raw ActsAsTaggableOn::Tag.pluck(:name)},
         delay: 100
       },
       showAutocompleteOnFocus: true
     })
+    $('.subcategory-selectize').selectize();
   });
