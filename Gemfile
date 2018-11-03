@@ -31,7 +31,7 @@ gem 'capistrano-rails'
 gem 'capistrano-rvm'
 gem 'faker'
 gem 'rails_12factor', group: :production
-
+gem 'selectize-rails'
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'

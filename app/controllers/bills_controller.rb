@@ -16,7 +16,7 @@ class BillsController < ApplicationController
     @bill = Bill.new(bill_params)
     @bill.user_id ||= current_user.id
 
-    if @bill.save
+    if @bill.save!
       redirect_to new_bill_url, notice: 'Bill was successfully created.'
     else
       render :new

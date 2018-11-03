@@ -22,11 +22,6 @@
               %th Dividable:
               %td= @bill.to_divide
             %tr
-              %th Tags:
-              %td
-                - tag_cloud(@bill.tag_list, %w(tag1)) do |tag|
-                  = link_to tag.name, tag_path(tag.name)
-            %tr
               %th Expenses:
               %td
                 %table.table.table-responsive

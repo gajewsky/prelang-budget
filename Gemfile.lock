@@ -248,6 +248,7 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    selectize-rails (0.12.5)
     sexp_processor (4.11.0)
     simple_form (4.0.1)
       actionpack (>= 5.0)
@@ -325,6 +326,7 @@ DEPENDENCIES
   rubocop (~> 0.52.1)
   sass-rails
   sdoc (~> 0.4.0)
+  selectize-rails
   simple_form
   therubyracer
   turbolinks
@@ -336,4 +338,4 @@ RUBY VERSION
    ruby 2.4.3p205
 
 BUNDLED WITH
-   1.16.1
+   1.17.1
