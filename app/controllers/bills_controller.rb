@@ -16,7 +16,7 @@ class BillsController < ApplicationController
     @bill = Bill.new(bill_params)
     @bill.user_id ||= current_user.id
 
-    if @bill.save!
+    if @bill.save
       redirect_to new_bill_url, notice: 'Bill was successfully created.'
     else
       render :new
@@ -66,6 +66,7 @@ class BillsController < ApplicationController
       :subcategory_id,
       :contractor_id,
       :user_id,
+      :to_divide,
       expenses_attributes: %i[
         id description value to_divide track subcategory_id _destroy tag_list
       ]

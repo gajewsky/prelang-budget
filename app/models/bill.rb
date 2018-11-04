@@ -4,7 +4,7 @@ class Bill < ApplicationRecord
 
   belongs_to :user
   belongs_to :contractor
-  has_many :expenses
+  has_many :expenses, dependent: :destroy
 
   before_validation :set_operation_date
 
