@@ -4,13 +4,28 @@
 .row
   .container
     - if @subcategory.category.income?
+      - summed_incomes = sum_values(@subcategory.incomes)
       %h2
         Incomes
-        %small= number_to_pln(sum_values(@subcategory.incomes))
+        %small= number_to_pln(summed_incomes)
+        %small.pull-right
+          Spent by day:
+          = pln_per_day(summed_incomes)
+        %small.pull-right
+          Spent by month:
+          = pln_per_month(summed_incomes)
 
       = render partial: 'incomes/incomes', locals: { incomes: @subcategory.incomes }
     - else
+      - summed_expenses = sum_values(@subcategory.expenses)
       %h2
         Expenses
-        %small= number_to_pln(sum_values(@subcategory.expenses))
+        %small= number_to_pln(summed_expenses)
+        %small.pull-right
+          by day:
+          = pln_per_day(summed_expenses)
+        %small.pull-right
+          by month:
+          = pln_per_month(summed_expenses)
+
       = render partial: 'expenses/expenses', locals: { expenses: @subcategory.expenses }
