@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.3'
+ruby '2.5.3'
 
 gem 'acts-as-taggable-on'
 gem 'bootstrap-sass'
@@ -25,13 +25,15 @@ gem 'tzinfo-data'
 gem 'uglifier'
 gem 'validates_formatting_of'
 gem 'therubyracer'
-gem 'capistrano'
-gem 'capistrano-bundler'
-gem 'capistrano-rails'
-gem 'capistrano-rvm'
+
+gem 'capistrano', '~> 3.7', '>= 3.7.1'
+gem 'capistrano-rails', '~> 1.2'
+gem 'capistrano-passenger', '~> 0.2.0'
+gem 'capistrano-rbenv', '~> 2.1'
 gem 'faker'
 gem 'rails_12factor', group: :production
 gem 'selectize-rails'
+
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
