@@ -1,5 +1,5 @@
-import { Application } from "stimulus";
+import { Application } from 'stimulus'
 
-const application = Application.start();
+const application = Application.start()
 
-export default application;
+export default application

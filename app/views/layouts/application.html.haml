@@ -1,6 +1,7 @@
 !!!
 %html
   %head
+    = stylesheet_pack_tag 'application'
     = favicon_link_tag 'favicon.png'
     %meta{ content: "#000000", name: "theme-color"}/
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
@@ -23,3 +24,4 @@
       - else
         = yield
     = render partial: 'layouts/footer'
+    = javascript_pack_tag 'application'
