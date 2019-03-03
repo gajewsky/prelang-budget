@@ -14723,11 +14723,11 @@ for (var func in conversions) {
   // export rgb2hsl and ["rgb"]["hsl"]
   convert[from] = convert[from] || {};
 
-  convert[from][to] = convert[func] = (function(func) { 
+  convert[from][to] = convert[func] = (function(func) {
     return function(arg) {
       if (typeof arg == "number")
         arg = Array.prototype.slice.call(arguments);
-      
+
       var val = conversions[func](arg);
       if (typeof val == "string" || val === undefined)
         return val; // keyword
@@ -14755,12 +14755,12 @@ Converter.prototype.routeSpace = function(space, args) {
    }
    // color.rgb(10, 10, 10)
    if (typeof values == "number") {
-      values = Array.prototype.slice.call(args);        
+      values = Array.prototype.slice.call(args);
    }
 
    return this.setValues(space, values);
 };
-  
+
 /* Set the values for a space, invalidating cache */
 Converter.prototype.setValues = function(space, values) {
    this.space = space;
@@ -19252,7 +19252,7 @@ module.exports = function(Chart) {
 "use strict";
 
 module.exports = function(Chart) {
-	
+
 	Chart.Radar = function(context, config) {
 		config.options = Chart.helpers.configMerge({ aspectRatio: 1 }, config.options);
 		config.type = 'radar';
@@ -20280,7 +20280,7 @@ module.exports = function(Chart) {
 				return 0;
 			}
 		},
-		
+
 		//gets the max border or hover width to properly scale pie charts
         getMaxBorderWidth: function (elements) {
             var max = 0,
@@ -20292,7 +20292,7 @@ module.exports = function(Chart) {
             for (var i = 0; i < length; i++) {
                	borderWidth = elements[i]._model ? elements[i]._model.borderWidth : 0;
                 hoverWidth = elements[i]._chart ? elements[i]._chart.config.data.datasets[index].hoverBorderWidth : 0;
-				
+
                 max = borderWidth > max ? borderWidth : max;
                 max = hoverWidth > max ? hoverWidth : max;
             }
@@ -21744,7 +21744,7 @@ module.exports = function(Chart) {
 			}, me);
 
 			return elementsArray;
-		},		
+		},
 
 		getElementsAtEventForMode: function(e, mode) {
 			var me = this;
@@ -22128,9 +22128,9 @@ module.exports = function(Chart) {
 			model.borderColor = custom.hoverBorderColor ? custom.hoverBorderColor : valueOrDefault(dataset.hoverBorderColor, index, getHoverColor(model.borderColor));
 			model.borderWidth = custom.hoverBorderWidth ? custom.hoverBorderWidth : valueOrDefault(dataset.hoverBorderWidth, index, model.borderWidth);
 		}
-		
+
     });
-	
+
 
 	Chart.DatasetController.extend = helpers.inherits;
 };
@@ -22165,7 +22165,7 @@ module.exports = function(Chart) {
 
     transition: function(ease) {
       var me = this;
-      
+
       if (!me._view) {
         me._view = helpers.clone(me._model);
       }
@@ -23198,7 +23198,7 @@ module.exports = function() {
 	var Chart = function(context, config) {
 		var me = this;
 		var helpers = Chart.helpers;
-		me.config = config || { 
+		me.config = config || {
 			data: {
 				datasets: []
 			}
@@ -26068,7 +26068,7 @@ module.exports = function(Chart) {
 				var vm = point._view;
 				if (point._view.steppedLine === true) {
 					ctx.lineTo(point._view.x, previousPoint._view.y);
-					ctx.lineTo(point._view.x, point._view.y);				
+					ctx.lineTo(point._view.x, point._view.y);
 				} else if (point._view.tension === 0) {
 					ctx.lineTo(vm.x, vm.y);
 				} else {
@@ -26128,7 +26128,7 @@ module.exports = function(Chart) {
 							}
 						} else {
 							if (lastDrawnIndex !== (index - 1)) {
-								// There was a gap and this is the first point after the gap. If we've never drawn a point, this is a special case. 
+								// There was a gap and this is the first point after the gap. If we've never drawn a point, this is a special case.
 								// If the first data point is NaN, then there is no real gap to skip
 								if (spanGaps && lastDrawnIndex !== -1) {
 									// We are spanning the gap, so simple draw a line to this point
@@ -26185,7 +26185,7 @@ module.exports = function(Chart) {
 				// First point moves to it's starting position no matter what
 				if (index === 0) {
 					if (currentVM.skip) {
-						
+
 					} else {
 						ctx.moveTo(currentVM.x, currentVM.y);
 						lastDrawnIndex = index;
@@ -26388,7 +26388,7 @@ module.exports = function(Chart) {
 		// Implement this so that
 		determineDataLimits: function() {
 			var me = this;
-			var labels = me.getLabels(); 
+			var labels = me.getLabels();
 			me.minIndex = 0;
 			me.maxIndex = labels.length - 1;
 			var findIndex;

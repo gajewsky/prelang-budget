@@ -25,6 +25,8 @@ gem 'tzinfo-data'
 gem 'uglifier'
 gem 'validates_formatting_of'
 gem 'therubyracer'
+gem 'komponent'
+gem 'webpacker', '~> 3.5'
 
 gem 'capistrano', '~> 3.7', '>= 3.7.1'
 gem 'capistrano-rails', '~> 1.2'

@@ -10,6 +10,7 @@
 /db/*.sqlite3
 /db/*.sqlite3-journal
 /.gem/*
+/tmp/*
 
 # Ignore all logfiles and tempfiles.
 /log/*.log
@@ -19,3 +20,10 @@
 /config/secrets.yml
 /config/database.yml
 /config/deploy/production.rb
+/public/
+/public/packs
+/public/packs-test
+/node_modules
+yarn-debug.log*
+.yarn-integrity
+

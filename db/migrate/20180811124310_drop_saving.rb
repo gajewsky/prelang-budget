@@ -1,5 +1,7 @@
 class DropSaving < ActiveRecord::Migration[5.1]
   def change
+    return unless table_exists? "savings"
+
     drop_table "savings", id: :serial, force: :cascade do |t|
       t.datetime "operation_date"
       t.text "description"

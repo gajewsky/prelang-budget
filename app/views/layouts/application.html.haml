@@ -2,6 +2,7 @@
 %html
   %head
     = favicon_link_tag 'favicon.png'
+    = stylesheet_pack_tag 'application'
     %meta{ content: "#000000", name: "theme-color"}/
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
     %title Calincome
@@ -23,3 +24,4 @@
       - else
         = yield
     = render partial: 'layouts/footer'
+    = javascript_pack_tag 'application'
