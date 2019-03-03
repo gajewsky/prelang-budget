@@ -12,7 +12,7 @@ AllCops:
     - spec/**/*
 
   Include:
-    - '**/Gemfile'
+    - '**/gems.rb'
     - '**/Rakefile'
     - '**/config.ru'
     - lib/tasks/**/*.rake

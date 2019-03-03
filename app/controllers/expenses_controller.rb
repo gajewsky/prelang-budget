@@ -7,7 +7,7 @@ class ExpensesController < ApplicationController
   def index
     @total_value = expenses_with_relations.map(&:value).reduce(:+)
     @expenses = expenses_with_relations.page(params[:page])
- end
+  end
 
   def destroy
     @expense = Expense.find(params[:id])
