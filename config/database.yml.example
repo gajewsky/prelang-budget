@@ -7,7 +7,7 @@ default: &default
 
 development:
   <<: *default
-  database: budget2_development
+  database: calincome_development
 test:
   <<: *default
-  database: budget2_test
+  database: calincome_test
