@@ -28,7 +28,9 @@ gem 'validates_formatting_of'
 gem 'therubyracer'
 gem 'aws-sdk-s3', require: false
 gem 'rollbar'
-
+gem 'komponent'
+gem 'webpacker', '~> 3.5'
+gem 'slim'
 gem 'capistrano', '~> 3.7', '>= 3.7.1'
 gem 'capistrano-rails', '~> 1.2'
 gem 'capistrano-passenger', '~> 0.2.0'
