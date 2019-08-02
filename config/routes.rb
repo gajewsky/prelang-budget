@@ -12,8 +12,6 @@ Rails.application.routes.draw do
 
   resources :contractors
 
-  resources :savings
-
   resources :subcategories, only: :show
 
   resources :incomes
