@@ -46,7 +46,7 @@ class DashboardController < ApplicationController
       .where(user_id: user_ids)
       .group_by_day(:operation_date)
       .sum(:value)
-      .map { |date, value| [date.strftime('%a %d %b'), value.to_f] }
+      .map { |date, value| [date.strftime('%d-%m-%y'), value.to_f] }
       .to_h
   end
 
