@@ -10,6 +10,7 @@ AllCops:
     - config/**/*
     - script/**/*
     - spec/**/*
+    - '**/Capfile'
 
   Include:
     - '**/gems.rb'

@@ -20,7 +20,7 @@
   %section.content
     .row
       #summary
-        = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses, bills: @bills, expenses_by_day: @expenses_by_day }
+        = render partial: 'summary', locals: { incomes: @incomes, expenses: @expenses, bills: @bills, expenses_by_day: @expenses_by_day, average_spent_per_day: @average_spent_per_day }
 
 :javascript
   jQuery( document ).ready(function( $ ) {
@@ -34,7 +34,7 @@
             'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')],
             'This Year': [moment().startOf('year'), moment().endOf('year')],
             'Last Year': [moment().subtract(1, 'year').startOf('year'), moment().subtract(1, 'year').endOf('year')],
-            'Overall': [moment().subtract(10, 'year'), moment()],
+            'Overall': [moment('2016-09-01'), moment()],
           },
           startDate: moment().startOf('month'),
           endDate: moment().endOf('month'),

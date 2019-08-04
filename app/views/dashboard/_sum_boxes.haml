@@ -36,8 +36,8 @@
     .small-box.bg-blue
       .inner
         %h3
-          = number_to_pln(debit)
-        %p Debit
+          = number_to_pln(average_spent_per_day)
+        %p Average spent per day
       .icon
         %i.fa.fa-credit-card
       = link_to expenses_path, class: 'small-box-footer' do
