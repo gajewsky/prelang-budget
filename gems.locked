@@ -312,6 +312,7 @@ GEM
     simple_form (4.1.0)
       actionpack (>= 5.0)
       activemodel (>= 5.0)
+    smarter_csv (1.2.6)
     sprockets (3.7.2)
       concurrent-ruby (~> 1.0)
       rack (> 1, < 3)
@@ -392,6 +393,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selectize-rails
   simple_form
+  smarter_csv
   therubyracer
   turbolinks
   tzinfo-data
