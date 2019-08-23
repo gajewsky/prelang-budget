@@ -48,6 +48,7 @@ class ContractorsController < ApplicationController
       :name,
       :subcategory_id,
       :description,
+      :revolut_id,
       :card_info
     )
   end

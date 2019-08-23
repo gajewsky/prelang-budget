@@ -14,6 +14,7 @@
           %td= truncate(contractor.description, length: 30)
           %td= link_to contractor.subcategory.title, subcategory_path(contractor.subcategory)
           %td= truncate(contractor.card_info, length: 30)
+          %td= truncate(contractor.revolut_id, length: 30)
 
           %td.col-sm-1
             = link_to edit_contractor_path(contractor), class: 'btn btn-xs btn-warning', title: 'Edit', rel: 'tooltip' do
