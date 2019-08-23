@@ -5,7 +5,7 @@
       .input-group
         .input-group-addon
           %i.fa.fa-credit-card
-        = f.input :value, autofocus: true, input_html: { autocomplete: 'off' }
+        = f.input :value, autofocus: true, as: :string, input_html: { class: 'expense_value', autocomplete: 'off' }
         %span.input-group-addon PLN
     .form-group
       .input-group
@@ -36,4 +36,9 @@
       showAutocompleteOnFocus: true
     })
     $('.subcategory-selectize').last().selectize();
+
+    $('.expense_value').focusout(function() {
+      var calc = $(this).val();
+      $(this).val(eval(calc));
+    })
   });
