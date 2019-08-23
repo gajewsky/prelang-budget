@@ -7,6 +7,6 @@ class Subcategory < ApplicationRecord
   has_many :incomes
 
   def label
-    "#{self&.category&.title} / #{title}"
+    "#{category&.title} / #{title}"
   end
 end

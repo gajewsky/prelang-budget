@@ -7,6 +7,8 @@
           .form-group
             = contractor.input :name
             = contractor.input :description
+            = contractor.association :subcategory, collection: Category.expense, as: :grouped_select, group_method: :subcategories, prompt: 'Choose a Category', input_html: { class: 'subcategory-selectize' }
             = contractor.input :card_info
+            = contractor.input :revolut_id
             = contractor.submit nil, class: 'btn btn-primary'
-            = link_to 'cancel', categories_path, class: 'btn btn-default'
+            = link_to 'cancel', contractors_path, class: 'btn btn-default'

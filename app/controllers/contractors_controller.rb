@@ -46,7 +46,9 @@ class ContractorsController < ApplicationController
   def contractor_params
     params.require(:contractor).permit(
       :name,
+      :subcategory_id,
       :description,
+      :revolut_id,
       :card_info
     )
   end
