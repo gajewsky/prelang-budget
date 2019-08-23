@@ -12,7 +12,7 @@
         %tr
           %td= link_to contractor.name, contractor_path(contractor)
           %td= truncate(contractor.description, length: 30)
-          %td= link_to contractor.subcategory.title, subcategory_path(contractor.subcategory)
+          %td= link_to contractor.subcategory.title, subcategory_path(contractor.subcategory) if contractor.subcategory
           %td= truncate(contractor.card_info, length: 30)
           %td= truncate(contractor.revolut_id, length: 30)
 
