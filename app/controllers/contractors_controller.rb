@@ -1,7 +1,8 @@
 class ContractorsController < ApplicationController
   before_action :set_contractor, only: %i[show edit update destroy]
+
   def index
-    @contractors = Contractor.all
+    @contractors = Contractor.order(:name)
   end
 
   def new
