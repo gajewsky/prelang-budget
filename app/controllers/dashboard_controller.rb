@@ -11,6 +11,7 @@ class DashboardController < ApplicationController
   def overall
     @incomes = Income.where(user_id: user_ids)
     @expenses = Expense.where(user_id: user_ids)
+    @average_spent_per_day = average_spent_per_day
     @bills = bills
   end
 

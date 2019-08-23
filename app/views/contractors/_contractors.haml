@@ -4,6 +4,7 @@
       %tr
         %th Name
         %th Description
+        %th Default Category
         %th Card Info
         %th.col-sm-1
     %tbody
@@ -11,6 +12,7 @@
         %tr
           %td= link_to contractor.name, contractor_path(contractor)
           %td= truncate(contractor.description, length: 30)
+          %td= link_to contractor.subcategory.title, subcategory_path(contractor.subcategory)
           %td= truncate(contractor.card_info, length: 30)
 
           %td.col-sm-1
