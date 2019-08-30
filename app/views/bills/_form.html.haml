@@ -17,6 +17,15 @@
         = bill.association :contractor, collection: Contractor.all, prompt: 'Choose a Contractor', input_html: { class: 'contractor-selectize' }
       = bill.input :to_divide, inline_label: 'To divide?'
 
+      .form-group
+        .input-group
+          = bill.input :photo
+
+        - if @bill.photo.attached?
+          %span
+            Attached photo:
+            = link_to @bill.photo.filename, url_for(@bill.photo)
+
       #expenses
         %br
         = bill.simple_fields_for :expenses do |expense|

@@ -21,4 +21,7 @@
 /config/deploy/production.rb
 /config/deploy.rb
 tags*
+/storage/*
 
+
+/config/master.key

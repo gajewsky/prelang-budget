@@ -21,6 +21,12 @@
             %tr
               %th Dividable:
               %td= @bill.to_divide
+            - if @bill.photo.attached?
+              %tr
+                %th Attached photo:
+                %td
+                  = link_to @bill.photo.filename, url_for(@bill.photo)
+
             %tr
               %th Expenses:
               %td
