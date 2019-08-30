@@ -25,6 +25,7 @@ class Expense < ApplicationRecord
 
   def set_fields_from_bill
     return unless bill
+
     self.contractor_id = bill.contractor_id
     self.user_id = bill.user_id
     self.operation_date = bill.operation_date

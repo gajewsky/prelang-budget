@@ -40,6 +40,8 @@ jobs:
 
       - run: bundle exec rubocop
 
+      - run: bundle exec rspec spec
+
       # collect reports
       - store_test_results:
           path: /tmp/test-results
