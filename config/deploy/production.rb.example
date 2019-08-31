@@ -1,3 +1,3 @@
 set :stage, :production
 
-server 'localhost', user: 'gajewsky', roles: %w{web db app}
+server ENV['CALINCOME_SERVER'], user: ENV['CALINCOME_USER'], roles: %w{web db app}
