@@ -1,3 +1,5 @@
+require: rubocop-rspec
+
 AllCops:
   DisplayCopNames: true
   TargetRubyVersion: 2.3
@@ -10,6 +12,8 @@ AllCops:
     - config/**/*
     - script/**/*
     - spec/**/*
+    - node_modules/**/*
+    - tmp/**/*
     - '**/Capfile'
 
   Include:
