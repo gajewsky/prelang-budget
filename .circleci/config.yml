@@ -16,23 +16,22 @@ jobs:
           command: |
             gem install bundler
       - checkout
+
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum 'gems.locked' }}
-          - v1-dependencies-
+            - bundler-{{ checksum "gems.locked" }}
+            - bundler-
+
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          key: bundler-{{ checksum "gems.locked" }}
+          paths:
+            - vendor/bundle
       - run:
           name: Override secrets
           command: |
             cp ~/calincome/.circleci/database.yml ~/calincome/config/database.yml
-      - run:
-          name: install dependencies
-          command: |
-            bundle install --jobs=4 --retry=3 --path vendor/bundle
-
-      - save_cache:
-          paths:
-            - ./vendor/bundle
-          key: v1-dependencies-{{ checksum 'gems.locked' }}
 
       - run:
           name: Database Setup
@@ -54,11 +53,22 @@ jobs:
     working_directory: ~/calincome
     steps:
       - checkout
+      - restore_cache:
+          keys:
+            - bundler-{{ checksum "gems.locked" }}
+            - bundler-
+
+      - run: bundle install --jobs=4 --retry=3 --path vendor/bundle
+
+      - save_cache:
+          key: bundler-{{ checksum "gems.locked" }}
+          paths:
+            - vendor/bundle
       - run:
           name: Override secrets
           command: |
             cp ~/calincome/config/deploy.rb.example ~/calincome/config/deploy.rb
-            cp ~/calincome/config/deploy/production.rb.example ~/calincome/config/deploy/production.rb
+            cp ~/calincome/config/deploy/production.rb.example ~/calincome/config/deploy/production.rbt push --set-upstream origin bugfix/storage.yml
       - run:
           name: Deploy to if tests pass and branch is Master
           command: bundle exec cap production deploy
