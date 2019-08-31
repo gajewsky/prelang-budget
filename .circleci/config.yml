@@ -52,6 +52,10 @@ jobs:
        - image: circleci/ruby:2.6.1-node-browsers
     working_directory: ~/calincome
     steps:
+      - run:
+          name: Install bundler
+          command: |
+            gem install bundler
       - checkout
       - restore_cache:
           keys:
