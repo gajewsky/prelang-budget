@@ -18,7 +18,7 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "gems.locked" }}
+          - v1-dependencies-{{ checksum 'gems.locked' }}
           - v1-dependencies-
       - run:
           name: Override secrets
@@ -32,7 +32,7 @@ jobs:
       - save_cache:
           paths:
             - ./vendor/bundle
-          key: v1-dependencies-{{ checksum "gems.locked" }}
+          key: v1-dependencies-{{ checksum 'gems.locked' }}
 
       - run:
           name: Database Setup
@@ -40,6 +40,10 @@ jobs:
             RAILS_ENV=test bundle exec rake db:test:prepare
 
       - run: bundle exec rubocop
+
+      - run:
+          name: Deploy if tests pass and branch is master
+          command: bundle exec cap production deploy
 
       # collect reports
       - store_test_results:
