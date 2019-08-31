@@ -1,7 +1,7 @@
 set :application, 'budget'
 set :repo_url, 'git@github.com:gajewsky/budget.git'
 set :deploy_to, '/home/deploy/budget'
-set :linked_files, %w{config/database.yml}
+set :linked_files, %w{config/database.yml config/master.key}
 
 namespace :deploy do
   desc 'Restart application'
