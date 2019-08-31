@@ -1,13 +1,7 @@
-settings = Rails.application.credentials.capistrano
-
-set :application, settings[:application]
-set :repo_url, settings[:repo_url]
-
-set :deploy_to, settings[:deploy_to]
-
+set :application, 'budget'
+set :repo_url, 'git@github.com:gajewsky/budget.git'
+set :deploy_to, '/home/gajewsky/budget'
 set :linked_files, %w{config/database.yml}
-set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets vendor/bundle public/system}
-set :bundle_binstubs, nil
 
 namespace :deploy do
   desc 'Restart application'
