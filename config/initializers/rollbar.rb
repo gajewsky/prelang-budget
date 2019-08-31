@@ -1,5 +1,5 @@
 Rollbar.configure do |config|
-  config.access_token = 'access_token'
+  config.access_token = Rails.application.credentials.rollbar[:access_token]
 
   config.enabled = false if Rails.env.test?
 

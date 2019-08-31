@@ -1,3 +1,0 @@
-set :stage, :production
-
-server 'localhost', user: 'gajewsky', roles: %w{web db app}
