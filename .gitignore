@@ -20,6 +20,8 @@
 /config/database.yml
 tags*
 /storage/*
+/config/deploy/production.rb
+/config/deploy.rb
 
 
 /config/master.key
