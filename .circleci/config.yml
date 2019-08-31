@@ -68,7 +68,7 @@ jobs:
           name: Override secrets
           command: |
             cp ~/calincome/config/deploy.rb.example ~/calincome/config/deploy.rb
-            cp ~/calincome/config/deploy/production.rb.example ~/calincome/config/deploy/production.rbt push --set-upstream origin bugfix/storage.yml
+            cp ~/calincome/config/deploy/production.rb.example ~/calincome/config/deploy/production.rb
       - run:
           name: Deploy to if tests pass and branch is Master
           command: bundle exec cap production deploy
