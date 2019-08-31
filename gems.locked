@@ -254,6 +254,7 @@ GEM
     responders (3.0.0)
       actionpack (>= 5.0)
       railties (>= 5.0)
+    rollbar (2.22.1)
     rubocop (0.52.1)
       parallel (~> 1.10)
       parser (>= 2.4.0.2, < 3.0)
@@ -359,6 +360,7 @@ DEPENDENCIES
   rails-assets-jquery-ui!
   rails-assets-moment!
   rails_12factor
+  rollbar
   rubocop (~> 0.52.1)
   sass-rails
   sdoc (~> 0.4.0)
