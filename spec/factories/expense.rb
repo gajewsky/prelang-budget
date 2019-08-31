@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :expense do
-    subcategory
+    association :subcategory
     operation_date { '2019-01-01' }
     description { 'Description' }
     value { 343.23 }

@@ -1,6 +1,6 @@
 # Model representing single expense
 class Expense < ApplicationRecord
-  include PgSearch
+  include PgSearch::Model
   include Rangable
 
   before_validation :set_fields_from_bill
