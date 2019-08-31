@@ -60,9 +60,6 @@ jobs:
             cp ~/calincome/config/deploy.rb.example ~/calincome/config/deploy.rb
             cp ~/calincome/config/deploy/production.rb.example ~/calincome/config/deploy/production.rb
       - run:
-          name: Bundle Install
-          command: bundle check || bundle install
-      - run:
           name: Deploy to if tests pass and branch is Master
           command: bundle exec cap production deploy
 
