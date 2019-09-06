@@ -40,6 +40,7 @@ gem 'selectize-rails'
 group :development, :test do
   gem 'pry'
   gem 'pry-rails'
+  gem 'lol_dba'
   gem 'rubocop', '~> 0.52.1'
   gem 'rubocop-rspec'
   gem 'factory_bot_rails'

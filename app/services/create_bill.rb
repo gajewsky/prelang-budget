@@ -1,4 +1,6 @@
 class CreateBill
+  extend ServiceObject
+
   def initialize(attrs:, expenses_attrs:, user:)
     @attrs = attrs
     @expenses_attrs = expenses_attrs
@@ -6,7 +8,7 @@ class CreateBill
   end
 
   def call
-    Bill.create(attrs_with_expenses)
+    Bill.create!(attrs_with_expenses)
   end
 
   private
@@ -14,7 +16,7 @@ class CreateBill
   attr_reader :attrs, :expenses_attrs, :user
 
   def expenses
-    @expenses ||= Array(expenses_attrs).map { |attrs| create_expense(attrs.values.first) }
+    @expenses ||= Array(expenses_attrs).map { |attrs| create_expense(attrs) }
   end
 
   def create_expense(expense_attrs)
@@ -24,7 +26,7 @@ class CreateBill
       contractor_id: attrs[:contractor_id]
     )
 
-    CreateExpense.new(attrs: attributes).call
+    CreateExpense.call(attrs: attributes)
   end
 
   def attrs_with_expenses

@@ -1,10 +1,12 @@
 class CreateExpense
+  extend ServiceObject
+
   def initialize(attrs:)
     @attrs = attrs
   end
 
   def call
-    Expense.create(permited_attrs)
+    Expense.create!(permited_attrs)
   end
 
   private
@@ -13,7 +15,6 @@ class CreateExpense
 
   def permited_attrs
     attrs.slice(
-      :id,
       :description,
       :contractor_id,
       :value,
