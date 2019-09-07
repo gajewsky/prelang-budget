@@ -34,6 +34,7 @@ RSpec.describe Import::RevolutAdapter do
           {
             description: "#{description} - restaurants - some notes",
             subcategory_id: expected_subcategory_id,
+            tag_list: ['revolut', 'need-confirm'],
             value: 63.0
           }
         ]

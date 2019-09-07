@@ -6,7 +6,12 @@ class CreateExpense
   end
 
   def call
-    Expense.create!(permited_attrs)
+    expense = Expense.new(permited_attrs)
+    expense.tag_list.add(*attrs[:tag_list])
+
+    expense.save!
+
+    expense
   end
 
   private
@@ -22,8 +27,7 @@ class CreateExpense
       :to_divide,
       :track,
       :operation_date,
-      :subcategory_id,
-      :tag_list
+      :subcategory_id
     )
   end
 end
