@@ -48,6 +48,6 @@ class CreateBill
   end
 
   def operation_date
-    attrs[:attrs] || Date.today
+    attrs[:operation_date] || Date.today
   end
 end
