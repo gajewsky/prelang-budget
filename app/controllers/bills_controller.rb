@@ -13,14 +13,13 @@ class BillsController < ApplicationController
   end
 
   def create
-    @bill = Bill.new(bill_params)
-    @bill.user_id ||= current_user.id
+    CreateBill.call(
+      attrs: attrs,
+      expenses_attrs: expenses_attrs,
+      user: user
+    )
 
-    if @bill.save
-      redirect_to new_bill_url, notice: 'Bill was successfully created.'
-    else
-      render :new
-    end
+    redirect_to new_bill_url, notice: 'Bill was successfully created.'
   end
 
   def update
@@ -58,6 +57,18 @@ class BillsController < ApplicationController
 
   def set_bill
     @bill = Bill.find(params[:id])
+  end
+
+  def user
+    @user ||= User.find_by(id: params.dig('bill', 'user_id')) || current_user
+  end
+
+  def expenses_attrs
+    @expenses_attrs ||= params.dig('bill', 'expenses_attributes').values
+  end
+
+  def attrs
+    @attrs ||= params['bill'].slice('operation_date', 'contractor_id', 'to_divide')
   end
 
   def bill_params

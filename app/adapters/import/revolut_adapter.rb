@@ -56,7 +56,7 @@ module Import
           description: description,
           value: row[:"paid_out_(pln)"],
           subcategory_id: subcategory_id,
-          tag_list: ['revolut', 'need-confirm']
+          tag_list: %w[revolut need-confirm]
         }
       end
 

@@ -11,9 +11,7 @@ RSpec.describe BillsController, type: :controller do
       end
 
       let(:expenses_attributes) do
-        [
-          attributes_for(:expense, user_id: user.id, subcategory_id: subcategory.id)
-        ]
+        { '0' => attributes_for(:expense, user_id: user.id, subcategory_id: subcategory.id) }
       end
 
       let(:post_request) do
