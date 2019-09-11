@@ -5,6 +5,7 @@
     %meta{ content: "#000000", name: "theme-color"}/
     %meta{ content: 'text/html; charset=UTF-8', 'http-equiv' => 'Content-Type'}/
     %title Calincome
+    = stylesheet_pack_tag 'application'
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
@@ -23,3 +24,4 @@
       - else
         = yield
     = render partial: 'layouts/footer'
+    = javascript_pack_tag 'application'
