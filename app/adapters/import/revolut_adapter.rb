@@ -37,7 +37,8 @@ module Import
         'To CB PAYMENTS',
         'To Crypto',
         'Cash at',
-        'Exchange'
+        'Exchange',
+        'To Base'
       ].freeze
 
       def not_valid_row?
@@ -56,7 +57,7 @@ module Import
           description: description,
           value: row[:"paid_out_(pln)"],
           subcategory_id: subcategory_id,
-          tag_list: ['revolut', 'need-confirm']
+          tag_list: ['revolut']
         }
       end
 
