@@ -91,6 +91,17 @@ User.transaction do
     ]
   )
 
+  Contractor.create!( [
+      { name: Faker::Hipster.word, description: Faker::Hipster.sentence, subcategory_id: subcategories.sample.id },
+      { name: Faker::Hipster.word, description: Faker::Hipster.sentence, subcategory_id: subcategories.sample.id },
+      { name: Faker::Hipster.word, description: Faker::Hipster.sentence, subcategory_id: subcategories.sample.id },
+      { name: Faker::Hipster.word, description: Faker::Hipster.sentence, subcategory_id: subcategories.sample.id },
+      { name: Faker::Hipster.word, description: Faker::Hipster.sentence, subcategory_id: subcategories.sample.id },
+      { name: Faker::Hipster.word, description: Faker::Hipster.sentence, subcategory_id: subcategories.sample.id },
+      { name: Faker::Hipster.word, description: Faker::Hipster.sentence, subcategory_id: subcategories.sample.id },
+    ]
+  )
+
   ActsAsTaggableOn::Tag.create(
     [
       { name: Faker::Hipster.word, taggings_count: 1 },
