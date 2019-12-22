@@ -9,7 +9,7 @@
     %tbody
       - categories.each do |category|
         %tr
-          %td= link_to category.title, category_path(category)
+          %td= category.title
           %td= category.description
           %td
             %ul.list-inline

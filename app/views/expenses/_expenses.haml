@@ -21,9 +21,7 @@
           %td= raw expense.tag_list.map { |t| link_to t, tag_path(t) }.join(', ')
           %td= link_to expense.contractor.name, contractor_path(expense.contractor) if expense.contractor
           %td= l expense.operation_date, format: '%d-%m-%y'
-          %td= link_to number_to_currency(expense.value, unit: 'zł', format: '%n %u'), expense_path(expense)
+          %td= number_to_currency(expense.value, unit: 'zł', format: '%n %u')
           %td
             = link_to edit_bill_path(expense.bill), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
               %i.fa.fa-pencil-square-o
-            = link_to expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', title: 'Remove', rel: 'tooltip' do
-              %i.fa.fa-trash
