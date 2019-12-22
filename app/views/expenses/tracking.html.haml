@@ -21,12 +21,10 @@
               %td= image_tag(expense.user.avatar || 'no-avatar.jpg', height: '22', width: '22', class: 'img-circle')
               %td= truncate(expense.description, length: 60)
               %td= link_to category_label(expense.subcategory), subcategory_path(expense.subcategory)
-              %td= link_to number_to_currency(expense.value, unit: 'zł', format: '%n %u'), expense_path(expense)
+              %td= number_to_currency(expense.value, unit: 'zł', format: '%n %u')
               %td= l expense.operation_date, format: '%d-%m-%y'
               %td= number_to_currency(daily_cost * 30.5 , unit: 'zł', format: '%n %u')
               %td= number_to_currency(daily_cost, unit: 'zł', format: '%n %u')
               %td
-                = link_to expense_path(expense), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
+                = link_to edit_bill_path(expense.bill), class: 'btn btn-xs btn-warning',title: 'Edit', rel: 'tooltip' do
                   %i.fa.fa-pencil-square-o
-                = link_to expense_path(expense), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-xs btn-danger', title: 'Remove', rel: 'tooltip' do
-                  %i.fa.fa-trash
