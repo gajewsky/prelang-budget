@@ -22,7 +22,7 @@
 en:
   time:
     formats:
-      default: "%d-%m-%Y"
+      default: "%d-%m-%y"
       short: "%b %Y"
   number:
     human:

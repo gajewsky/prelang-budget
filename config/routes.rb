@@ -2,13 +2,12 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   get 'dashboard/overall'
 
-  resources :expenses, only: %i[show destroy]
-  resources :bills
+  resources :expenses, only: %i[index]
+  resources :bills, only: %i[edit index new create update destroy]
 
   get 'tracking/', to: 'expenses#tracking'
-  get 'expenses/', to: 'expenses#index'
 
-  resources :categories
+  resources :categories, only: %i[edit index new create update destroy]
 
   resources :contractors
 
