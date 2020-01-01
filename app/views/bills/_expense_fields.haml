@@ -38,7 +38,7 @@
     $('.subcategory-selectize').last().selectize();
 
     $('.expense_value').focusout(function() {
-      var calc = $(this).val();
+      var calc = $(this).val().replace(',', '.');
       $(this).val(eval(calc));
     })
   });
