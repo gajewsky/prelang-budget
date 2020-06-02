@@ -81,8 +81,9 @@ RSpec.describe Import::RevolutAdapter do
     end
 
     context 'and description has part of revolut_id' do
-      let!(:contractor) { create :contractor, revolut_id: 'Contractor Name Something', subcategory_id: 13 }
+      let!(:contractor) { create :contractor, revolut_id: 'digitalocean', subcategory_id: 13 }
       let(:expected_subcategory_id) { 13 }
+      let(:description) { "Digitalocean FX Rate zł 1 = $0.2411" }
 
       it 'finds contractor using regexp' do
         expect(subject).to eq expected_result

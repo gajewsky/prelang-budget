@@ -66,7 +66,11 @@ module Import
       end
 
       def contractor
-        @contractor ||= Contractor.find_by('revolut_id ~* ?', row[:description])
+        @contractor ||= Contractor.find do |contractor|
+          pattern = /#{Regexp.quote(contractor.revolut_id)}/i
+
+          pattern.match? row[:description]
+        end
       end
 
       def subcategory_id
