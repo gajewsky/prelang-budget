@@ -80,6 +80,15 @@ RSpec.describe Import::RevolutAdapter do
       end
     end
 
+    context 'and description has part of revolut_id' do
+      let!(:contractor) { create :contractor, revolut_id: 'Contractor Name Something', subcategory_id: 13 }
+      let(:expected_subcategory_id) { 13 }
+
+      it 'finds contractor using regexp' do
+        expect(subject).to eq expected_result
+      end
+    end
+
     context 'and contractor has not associated default category' do
       let!(:contractor) { create :contractor, revolut_id: 'Contractor Name' }
 

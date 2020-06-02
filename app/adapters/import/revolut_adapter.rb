@@ -66,7 +66,7 @@ module Import
       end
 
       def contractor
-        @contractor ||= Contractor.find_by(revolut_id: row[:description])
+        @contractor ||= Contractor.find_by('revolut_id ~* ?', row[:description])
       end
 
       def subcategory_id
