@@ -16,7 +16,7 @@ gem 'kaminari'
 gem 'pg', '~> 0.18'
 gem 'pg_search'
 gem 'puma', '~> 3.12'
-gem 'rails'
+gem 'rack', '2.2.2'
 gem 'smarter_csv'
 gem 'sass-rails'
 gem 'sdoc', '~> 0.4.0', group: :doc
