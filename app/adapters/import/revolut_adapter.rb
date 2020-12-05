@@ -66,7 +66,7 @@ module Import
       end
 
       def contractor
-        @contractor ||= Contractor.where.not(revolut_id: "").find do |contractor|
+        @contractor ||= Contractor.where.not(revolut_id: '').find do |contractor|
           pattern = /#{Regexp.quote(contractor.revolut_id)}/i
 
           pattern.match? row[:description]
